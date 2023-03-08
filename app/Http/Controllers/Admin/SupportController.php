@@ -20,8 +20,13 @@ class SupportController extends Controller
         return view('admin/supports/create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request, Support $support)
     {
-        dd($request->all());
+        $data = $request->all();
+        $data['status'] = 'a';
+
+        $support->create($data);
+
+        return redirect()->route('supports.index');
     }
 }
