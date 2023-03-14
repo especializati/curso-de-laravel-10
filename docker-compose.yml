@@ -30,6 +30,7 @@ services:
     # db mysql
     db:
         image: mysql:5.7.22
+        platform: linux/x86_64
         restart: unless-stopped
         environment:
             MYSQL_DATABASE: ${DB_DATABASE:-laravel}
