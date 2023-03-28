@@ -195,6 +195,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        App\Modules\Admin\Support\Providers\ModuleServiceProvider::class,
+        App\Modules\Site\Providers\ModuleServiceProvider::class,
+
     ],
 
     /*

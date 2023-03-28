@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Modules\Admin\Support\Repositories;
 
-use App\DTO\{
-    CreateSupportDTO,
-    UpdateSupportDTO
-};
+use App\Modules\Admin\Support\DTO\CreateSupportDTO;
+use App\Modules\Admin\Support\DTO\UpdateSupportDTO;
 use stdClass;
 
-interface SupportRepositoryInterface
+interface SupportRepository
 {
     public function getAll(string $filter = null): array;
     public function findOne(string $id): stdClass|null;

@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Modules\Admin\Support\Repositories;
 
-use App\DTO\CreateSupportDTO;
-use App\DTO\UpdateSupportDTO;
-use App\Models\Support;
-use App\Repositories\SupportRepositoryInterface;
+use App\Modules\Admin\Support\DTO\CreateSupportDTO;
+use App\Modules\Admin\Support\DTO\UpdateSupportDTO;
+use App\Modules\Admin\Support\Models\Support;
 use stdClass;
 
-class SupportEloquentORM implements SupportRepositoryInterface
+class SupportRepositoryEloquent implements SupportRepository
 {
     public function __construct(
         protected Support $model

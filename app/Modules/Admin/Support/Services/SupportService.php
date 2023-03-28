@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Services;
+namespace App\Modules\Admin\Support\Services;
 
-use App\DTO\CreateSupportDTO;
-use App\DTO\UpdateSupportDTO;
-use App\Repositories\SupportRepositoryInterface;
+use App\Modules\Admin\Support\DTO\CreateSupportDTO;
+use App\Modules\Admin\Support\DTO\UpdateSupportDTO;
+use App\Modules\Admin\Support\Repositories\SupportRepository;
 use stdClass;
 
 class SupportService
 {
     public function __construct(
-        protected SupportRepositoryInterface $repository,
+        protected SupportRepository $repository,
     ) {}
 
     public function getAll(string $filter = null): array
