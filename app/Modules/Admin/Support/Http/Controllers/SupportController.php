@@ -24,7 +24,7 @@ class SupportController extends Controller
         return view('admin/supports/index', compact('supports'));
     }
 
-    public function show(string $id)
+    public function show(int $id)
     {
         if (!$support = $this->repository->findOne($id)) {
             return back();
@@ -47,7 +47,7 @@ class SupportController extends Controller
         return redirect()->route('supports.index');
     }
 
-    public function edit(string $id)
+    public function edit(int $id)
     {
         if (!$support = $this->repository->findOne($id)) {
             return back();
@@ -65,7 +65,7 @@ class SupportController extends Controller
         return redirect()->route('supports.index');
     }
 
-    public function destroy(string $id)
+    public function destroy(int $id)
     {
         $this->repository->delete($id);
 

@@ -19,7 +19,7 @@ class SupportRepositoryEloquent implements SupportRepository
         ->toArray();
     }
 
-    public function findOne(string $id): ?Support
+    public function findOne(int $id): ?Support
     {
         $support = SupportEloquent::find($id);
 
@@ -35,7 +35,7 @@ class SupportRepositoryEloquent implements SupportRepository
         );
     }
 
-    public function delete(string $id): void
+    public function delete(int $id): void
     {
         SupportEloquent::findOrFail($id)->delete();
     }

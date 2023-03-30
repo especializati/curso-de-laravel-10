@@ -8,6 +8,6 @@ class Support
         public readonly string $subject,
         public readonly string $status,
         public readonly string $body,
-        public readonly string|null $id = null
+        public readonly int|null $id = null
     ) {}
 }

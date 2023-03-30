@@ -8,9 +8,9 @@ interface SupportRepository
 {
     public function getAll(string $filter = null): array;
 
-    public function findOne(string $id): ?Support;
+    public function findOne(int $id): ?Support;
 
-    public function delete(string $id): void;
+    public function delete(int $id): void;
 
     public function save(Support $support): int;
 }
