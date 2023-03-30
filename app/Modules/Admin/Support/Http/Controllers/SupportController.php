@@ -19,7 +19,7 @@ class SupportController extends Controller
 
     public function index(Request $request)
     {
-        $supports = $this->repository->getAll($request->filter);
+        $supports = $this->repository->getAll($request->filter)->all();
 
         return view('admin/supports/index', compact('supports'));
     }

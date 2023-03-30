@@ -3,10 +3,11 @@
 namespace App\Modules\Admin\Support\Repositories;
 
 use App\Modules\Admin\Support\Entity\Support;
+use App\Modules\Admin\Support\Entity\SupportList;
 
 interface SupportRepository
 {
-    public function getAll(string $filter = null): array;
+    public function getAll(string $filter = null): SupportList;
 
     public function findOne(int $id): ?Support;
 

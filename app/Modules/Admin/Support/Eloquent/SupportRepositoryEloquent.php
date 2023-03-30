@@ -3,20 +3,25 @@
 namespace App\Modules\Admin\Support\Eloquent;
 
 use App\Modules\Admin\Support\Entity\Support;
+use App\Modules\Admin\Support\Entity\SupportList;
 use App\Modules\Admin\Support\Repositories\SupportRepository;
 
 class SupportRepositoryEloquent implements SupportRepository
 {
-    public function getAll(string $filter = null): array
+    public function getAll(string $filter = null): SupportList
     {
-        return SupportEloquent::where(function ($query) use ($filter) {
+        $rows = SupportEloquent::where(function ($query) use ($filter) {
             if ($filter) {
                 $query->where('subject', $filter);
                 $query->orWhere('body', 'like', "%{$filter}%");
             }
-        })
-        ->get()
-        ->toArray();
+        })->get()->toArray();
+
+        $list = array_map(function ($row) {
+            return new Support($row['subject'], $row['status'], $row['body'], $row['id']);
+        }, $rows);
+
+        return new SupportList(...$list);
     }
 
     public function findOne(int $id): ?Support
