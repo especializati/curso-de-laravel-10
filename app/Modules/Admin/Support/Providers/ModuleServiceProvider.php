@@ -2,7 +2,7 @@
 
 namespace App\Modules\Admin\Support\Providers;
 
-use App\Modules\Admin\Support\Repositories\SupportRepositoryEloquent;
+use App\Modules\Admin\Support\Eloquent\SupportRepositoryEloquent;
 use App\Modules\Admin\Support\Repositories\SupportRepository;
 use Illuminate\Support\ServiceProvider;
 
