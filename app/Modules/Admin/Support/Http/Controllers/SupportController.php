@@ -3,7 +3,6 @@
 namespace App\Modules\Admin\Support\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Modules\Admin\Support\Eloquent\SupportRepositoryEloquent;
 use App\Modules\Admin\Support\Http\Requests\StoreUpdateSupport;
 use App\Modules\Admin\Support\Repositories\SupportRepository;
 use App\Modules\Admin\Support\Usecases\CreateSupport\CreateSupport;
@@ -41,8 +40,7 @@ class SupportController extends Controller
 
     public function store(StoreUpdateSupport $request)
     {
-        $repository = new SupportRepositoryEloquent();
-        $usecase = new CreateSupport($repository);
+        $usecase = new CreateSupport($this->repository);
         $input = new CreateSupportInput($request->subject, 'a', $request->body);
         $usecase->handle($input);
 
@@ -60,8 +58,7 @@ class SupportController extends Controller
 
     public function update(StoreUpdateSupport $request)
     {
-        $repository = new SupportRepositoryEloquent();
-        $usecase = new UpdateSupport($repository);
+        $usecase = new UpdateSupport($this->repository);
         $input = new UpdateSupportInput($request->id, $request->subject, 'a', $request->body);
         $usecase->handle($input);
 
