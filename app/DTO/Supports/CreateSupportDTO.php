@@ -1,6 +1,6 @@
 <?php
 
-namespace App\DTO;
+namespace App\DTO\Supports;
 
 use App\Http\Requests\StoreUpdateSupport;
 
