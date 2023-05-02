@@ -31,9 +31,7 @@
                                 {{ $support->subject }}
                             </td>
                             <td class="px-12 py-2 text-sm font-medium whitespace-nowrap">
-                                <div class="inline px-3 py-1 text-sm font-normal rounded-full text-emerald-500 gap-x-2 bg-emerald-100/60 dark:bg-gray-800">
-                                    {{ getStatusSupport($support->status) }}
-                                </div>
+                                <x-status-support :status="$support->status"></x-status-support>
                             </td>
                             <td class="px-4 py-2 text-sm whitespace-nowrap text-gray-500 dark:text-gray-400">
                                 {{ $support->body }}
