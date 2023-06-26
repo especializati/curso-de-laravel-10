@@ -38,7 +38,7 @@
 
                     <div class="flex justify-between">
                         <span>{{ $reply['created_at'] }}</span>
-                        <form action="{{ route('supports.destroy', $support->id) }}" method="post">
+                        <form action="{{ route('replies.destroy', [$support->id, $reply['id']]) }}" method="post">
                             @csrf()
                             @method('DELETE')
                             <button type="submit" class="bg-red-500 hover:bg-red-400 text-white py-1 px-4 border-b-4 border-red-700 hover:border-red-500 rounded">Deletar</button>
