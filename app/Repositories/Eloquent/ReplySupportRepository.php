@@ -27,12 +27,13 @@ class ReplySupportRepository implements ReplyRepositoryInterface
 
     public function createNew(CreateReplyDTO $dto): stdClass
     {
-        $reply = $this->model->create([
+        $reply = $this->model->with('user')->create([
             'content' => $dto->content,
             'support_id' => $dto->supportId,
             // 'user_id' => auth()::user()->id,
             'user_id' => Auth::user()->id,
         ]);
+        $reply = $reply->with('user')->first();
 
         return (object) $reply->toArray();
     }
