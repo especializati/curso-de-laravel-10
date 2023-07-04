@@ -16,7 +16,8 @@ class SupportController extends Controller
 {
     public function __construct(
         protected SupportService $service,
-    ) {}
+    ) {
+    }
 
     /**
      * Display a listing of the resource.
@@ -42,7 +43,9 @@ class SupportController extends Controller
             CreateSupportDTO::makeFromRequest($request)
         );
 
-        return new SupportResource($support);
+        return (new SupportResource($support))
+            ->response()
+            ->setStatusCode(Response::HTTP_CREATED);;
     }
 
     /**

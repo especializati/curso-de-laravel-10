@@ -36,6 +36,8 @@ class ReplySupportApiController extends Controller
             CreateReplyDTO::makeFromRequest($request)
         );
 
-        return new ReplySupportResource($reply);
+        return (new ReplySupportResource($reply))
+            ->response()
+            ->setStatusCode(Response::HTTP_CREATED);
     }
 }
