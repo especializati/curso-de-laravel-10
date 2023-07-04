@@ -11,6 +11,7 @@ Route::get('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/replies/{support_id}', [ReplySupportApiController::class, 'getRepliesFromSupport']);
+    Route::post('/replies/{support_id}', [ReplySupportApiController::class, 'createNewReply']);
 
     Route::apiResource('/supports', SupportController::class);
 });
