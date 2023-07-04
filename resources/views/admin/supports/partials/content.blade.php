@@ -39,7 +39,9 @@
                             <td class="px-4 py-2 text-sm whitespace-nowrap">
                                 <div class="flex items-center">
                                     @foreach ($support->replies as $reply)
-                                    <div class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0 bg-green-500">{{ getInitials($reply['user']['name']) }}</div>
+                                        @if ($loop->index < 4)
+                                            <div class="object-cover w-6 h-6 -mx-1 border-2 border-white rounded-full dark:border-gray-700 shrink-0 bg-green-500">{{ getInitials($reply['user']['name']) }}</div>
+                                        @endif
                                     @endforeach
                                 </div>
                             </td>
