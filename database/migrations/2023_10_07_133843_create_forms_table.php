@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nome');
             $table->string('senha');
             $table->text('body');
-            $table->enum('status',['a','p','c']);
+            $table->enum('status',['a','o','c','d']);
             $table->timestamps();
         });
     }

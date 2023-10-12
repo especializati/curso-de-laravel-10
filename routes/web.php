@@ -7,9 +7,13 @@ use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/contato', [SiteController::class, 'contact']);
-Route::get('/formulario', [FormsController::class,'formulario']);
+Route::get('/formulario', [FormsController::class,'formulario'])->name('formulario.index');
 Route::get('/cadastro', [FormsController::class,'cadastro'])->name('cadastro.index');
 Route::post('/cadastro', [FormsController::class,'cadastrar'])->name('cadastrar.index');
+Route::get('/login1', [FormsController::class,'login'])->name('login.index');
+Route::post('/login1', [FormsController::class,'fazerlogin'])->name('fazerlogin.index');
+Route::get('/aniversariante',[FormsController::class,'pagina1'])->name('aniversariante.index');
+Route::get('/admnistrativo',[FormsController::class,'admnistrativo'])->name('admnistrativo.index');
 Route::get('/', function () {
     return view('welcome');
 });

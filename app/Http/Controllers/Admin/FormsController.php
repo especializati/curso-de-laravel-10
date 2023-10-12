@@ -22,4 +22,29 @@ class FormsController extends Controller
     return redirect()->route('formulario.index');
 
    }
+   public function fazerlogin(Request $request, Forms $formu){
+    $formu= $formu->all();
+    $data= $request->all();
+    foreach($formu as $forms){
+        if($data['nome']===$forms->nome && $data['senha']===$forms->senha ){
+            if($forms->status==='a'){
+            return redirect()->route('aniversariante.index');}
+            if($forms->status==='d'){
+                return redirect()->route('admnistrativo.index');}
+        }
+       
+    }
+   
+        return redirect()->route('login.index');
+     
+}
+   public function pagina1(){
+    return view('site/pagina1');
+   }
+   public function admnistrativo(){
+    return view('site/admnistrativo');
+   }
+   public function login(){
+    return view('site/login');
+   }
 }
