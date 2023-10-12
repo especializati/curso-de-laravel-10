@@ -9,8 +9,8 @@ use App\Models\Forms;
 class FormsController extends Controller
 {
     public function formulario(Forms $formu){
-        $formul= $formu->all();
-        return view('site/formulario', compact('formul'));
+        $formu= $formu->all();
+        return view('site/formulario', compact('formu'));
     }
    public function cadastro(){
     return view('site/cadastro');

@@ -2,11 +2,14 @@
 
 use App\Http\Controllers\Admin\{ReplySupportController, SupportController};
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Admin\FormsController;
 use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/contato', [SiteController::class, 'contact']);
-
+Route::get('/formulario', [FormsController::class,'formulario']);
+Route::get('/cadastro', [FormsController::class,'cadastro'])->name('cadastro.index');
+Route::post('/cadastro', [FormsController::class,'cadastrar'])->name('cadastrar.index');
 Route::get('/', function () {
     return view('welcome');
 });

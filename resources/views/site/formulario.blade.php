@@ -7,7 +7,7 @@
     <th>descricao</th>
   </thread>
   <tbody>
-        @foreach($formul as $forms)
+        @foreach($formu as $forms)
            <tr>
             <td>{{$forms->nome}}</td>
             <td>{{$forms->senha}}</td>
