@@ -3,6 +3,6 @@
     @csrf()
     <input type="text" placeholder="nome" name="nome">
     <input type="password" placeholder="senha" name="senha">
-    <textarea name="body" cols="30" rows="5" placeholder="Assunto"></textarea>
+    <input type="text" placeholder="body" name="body">
     <button type="submit">Cadastrar</button>
 </form>

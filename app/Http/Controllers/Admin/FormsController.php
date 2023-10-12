@@ -8,6 +8,7 @@ use App\Models\Forms;
 
 class FormsController extends Controller
 {
+
     public function formulario(Forms $formu){
         $formu= $formu->all();
         return view('site/formulario', compact('formu'));
@@ -22,15 +23,20 @@ class FormsController extends Controller
     return redirect()->route('formulario.index');
 
    }
-   public function fazerlogin(Request $request, Forms $formu){
+   public function fazerlogin(Request $request, Forms $formu ){
     $formu= $formu->all();
     $data= $request->all();
     foreach($formu as $forms){
         if($data['nome']===$forms->nome && $data['senha']===$forms->senha ){
             if($forms->status==='a'){
-            return redirect()->route('aniversariante.index');}
+            return view('site/pagina1', compact ('forms'));
+    
+        }
             if($forms->status==='d'){
-                return redirect()->route('admnistrativo.index');}
+                return view('site/admnistrativo');
+
+            }
+        
         }
        
     }
@@ -38,12 +44,8 @@ class FormsController extends Controller
         return redirect()->route('login.index');
      
 }
-   public function pagina1(){
-    return view('site/pagina1');
-   }
-   public function admnistrativo(){
-    return view('site/admnistrativo');
-   }
+   
+   
    public function login(){
     return view('site/login');
    }
