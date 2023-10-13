@@ -11,7 +11,6 @@
            <tr>
             <td>{{$forms->nome}}</td>
             <td>{{$forms->senha}}</td>
-            <td>{{$forms->body}}</td>
            </tr>
         @endforeach
   </tbody>

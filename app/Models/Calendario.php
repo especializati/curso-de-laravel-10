@@ -5,13 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Forms extends Model
+class Calendario extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'nome',
-        'status',
-        'senha'
+        'data',
+        'hora_inicial',
+        'hora_final'
     ];
-
 }

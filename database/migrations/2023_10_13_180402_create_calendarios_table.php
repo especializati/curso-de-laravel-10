@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('forms', function (Blueprint $table) {
+        Schema::create('calendarios', function (Blueprint $table) {
             $table->id();
-            $table->string('nome');
-            $table->string('senha');
-            $table->enum('status',['a','o','c','d']);
+            $table->date("data");
+            $table->time("hora_inicial");
+            $table->time("hora_final");
             $table->timestamps();
         });
     }
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('forms');
+        Schema::dropIfExists('calendarios');
     }
 };

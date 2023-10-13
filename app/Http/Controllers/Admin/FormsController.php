@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Forms;
 
 class FormsController extends Controller
@@ -19,6 +20,7 @@ class FormsController extends Controller
    public function cadastrar(Request $request, Forms $formu){
     $data= $request->all();
     $data['status']='a';
+    $data['senha'] = Hash::make($data['senha']);
     $formu=$formu->create($data);
     return redirect()->route('formulario.index');
 
@@ -27,7 +29,7 @@ class FormsController extends Controller
     $formu= $formu->all();
     $data= $request->all();
     foreach($formu as $forms){
-        if($data['nome']===$forms->nome && $data['senha']===$forms->senha ){
+        if($data['nome']==$forms->nome && Hash::check($data['senha'],$forms->senha) ){
             if($forms->status==='a'){
             return view('site/pagina1', compact ('forms'));
     
@@ -44,7 +46,15 @@ class FormsController extends Controller
         return redirect()->route('login.index');
      
 }
-   
+   public function RespostasAdmin(Request $request){
+    $data= $request->all();
+    if ($data['NovaAgenda']==='Agenda'){
+        return view('site/novocalendario');
+    }
+    else{
+        return redirect()->route('fazerlogin.index');
+    }
+   }
    
    public function login(){
     return view('site/login');

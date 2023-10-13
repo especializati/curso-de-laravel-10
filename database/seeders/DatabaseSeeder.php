@@ -1,6 +1,8 @@
 <?php
 
 namespace Database\Seeders;
+use App\Models\Forms;
+use Illuminate\Support\Facades\Hash;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -18,5 +20,12 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        Forms::factory()->create([
+            'id'=>'4',
+            'nome'=> 'gabriel2',
+            'senha'=> Hash::make('12345'),
+            'status'=>'d'
+
+        ]);
     }
 }

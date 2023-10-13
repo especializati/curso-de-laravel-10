@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\{ReplySupportController, SupportController};
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\FormsController;
 use App\Http\Controllers\Site\SiteController;
+use App\Http\Controllers\Admin\CalendarioController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/contato', [SiteController::class, 'contact']);
@@ -12,6 +13,8 @@ Route::get('/cadastro', [FormsController::class,'cadastro'])->name('cadastro.ind
 Route::post('/cadastro', [FormsController::class,'cadastrar'])->name('cadastrar.index');
 Route::get('/login1', [FormsController::class,'login'])->name('login.index');
 Route::post('/login1', [FormsController::class,'fazerlogin'])->name('fazerlogin.index');
+Route::post('/admin1',[FormsController::class,'RespostasAdmin'])->name('respostasadmin.index');
+Route::post('/agenda',[CalendarioController::class,'inseriragenda'])->name('inseriragenda.index');
 Route::get('/', function () {
     return view('welcome');
 });
