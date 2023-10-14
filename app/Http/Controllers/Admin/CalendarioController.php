@@ -13,4 +13,8 @@ class CalendarioController extends Controller
         return redirect()->route('formulario.index');
  
     }
+    public function agenda(Calendario $forms){
+        $forms=$forms->all();
+        return view('site/agenda',compact('forms'));
+    }
 }

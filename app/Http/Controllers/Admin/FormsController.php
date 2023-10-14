@@ -59,4 +59,7 @@ class FormsController extends Controller
    public function login(){
     return view('site/login');
    }
+   public function paginapublica(){
+    return view('site/paginainicial');
+   }
 }

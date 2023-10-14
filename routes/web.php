@@ -14,10 +14,10 @@ Route::post('/cadastro', [FormsController::class,'cadastrar'])->name('cadastrar.
 Route::get('/login1', [FormsController::class,'login'])->name('login.index');
 Route::post('/login1', [FormsController::class,'fazerlogin'])->name('fazerlogin.index');
 Route::post('/admin1',[FormsController::class,'RespostasAdmin'])->name('respostasadmin.index');
-Route::post('/agenda',[CalendarioController::class,'inseriragenda'])->name('inseriragenda.index');
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::post('/agendaCRUD',[CalendarioController::class,'inseriragenda'])->name('inseriragenda.index');
+Route::get('/agenda',[CalendarioController::class,'agenda'])->name('agenda.index');
+Route::get('/',[FormsController::class,'paginapublica'])->name('paginainicial.index');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
