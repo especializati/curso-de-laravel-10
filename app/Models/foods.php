@@ -12,6 +12,9 @@ class foods extends Model
         'titulo',
         'Foto1',
         'Foto2',
-        'Foto3'
+        'Foto3',
+        'lista_comidas',
+        'lista_bebidas'
+
     ];
 }

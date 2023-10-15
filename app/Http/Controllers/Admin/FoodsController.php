@@ -21,8 +21,10 @@ class FoodsController extends Controller
         $data['Foto1']= $imagepath1;
         $data['Foto2']= $imagepath2;
         $data['Foto3']= $imagepath3;
+
         $forms=$forms->create($data);
-        return redirect()->route('food.index');
+        $forms=$forms->all();
+        return view('site/foodview', compact('forms'));
     }
 
     public function foodsview(foods $forms , Request $request){
