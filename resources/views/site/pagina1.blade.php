@@ -15,3 +15,8 @@
        
   </tbody>
 </table>
+<form action="{{route('foodview.index')}}" method="POST">
+    @csrf()
+    <input type="hidden" value="food" name="food">
+    <button type="submit" name="food1">food</button>
+</form>

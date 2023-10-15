@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use App\Models\Forms;
+use App\Models\foods;
+use App\Models\Calendario;
 
 class FormsController extends Controller
 {
@@ -46,14 +48,51 @@ class FormsController extends Controller
         return redirect()->route('login.index');
      
 }
-   public function RespostasAdmin(Request $request){
+   public function RespostasAdmin(Request $request, Calendario $forms){
     $data= $request->all();
+    $forms=$forms->all();
     if ($data['NovaAgenda']==='Agenda'){
-        return view('site/novocalendario');
+        return view('site/agendaCRUD', compact('forms'));
     }
     else{
         return redirect()->route('fazerlogin.index');
     }
+   }
+   public function RespostasAdmin1(Request $request){
+    $data= $request->all();
+    if ($data['food']==='food'){
+        return view('site/food');
+    }
+    else{
+        return redirect()->route('fazerlogin.index');
+    }
+   }
+   public function RespostasAniver(Request $request){
+    $data= $request->all();
+    if ($data['food']==='food'){
+        return view('site/foodview');
+    }
+    else{
+        return redirect()->route('fazerlogin.index');
+    }
+   }
+   public function editdate(Request $request , Calendario $form, string|int $id){
+    $form=$form->find($id);
+    return view('site/editdate',compact('form'));
+   }
+   public function editaragenda(Request $request , Calendario $forms, string|int $id){
+    $forms=$forms->where('id',$id)->first();
+    $forms->update($request->only(['data','hora_inicial','hora_final']));
+    $forms=$forms->all();
+    return view('site/agendaCRUD',compact('forms'));
+
+   }
+   public function deleteagenda(Request $request , Calendario $forms, string|int $id){
+    $forms=$forms->where('id',$id)->first();
+    $forms->delete();
+    $forms=$forms->all();
+    return view('site/agendaCRUD',compact('forms'));
+
    }
    
    public function login(){
