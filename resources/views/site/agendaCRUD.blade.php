@@ -15,7 +15,7 @@
             <td>{{$forms->data}}</td>
             <td>{{$forms->hora_inicial}}</td>
             <td>{{$forms->hora_final}}</td>
-            <td><a href="{{route('editdate.index',$forms->id)}}">Editar</a>
+            <td><a href="{{route('editdate.index',$forms->id)}}">Editar</a></td>
             <td><a href="{{route('delete.index',$forms->id)}}">Delete</a>
             </td>
            </tr>

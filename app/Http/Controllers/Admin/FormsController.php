@@ -94,6 +94,37 @@ class FormsController extends Controller
     return view('site/agendaCRUD',compact('forms'));
 
    }
+   public function deletefood(Request $request , foods $forms, string|int $id){
+    $forms=$forms->where('id',$id)->first();
+    $forms->delete();
+    $forms=$forms->all();
+    return view('site/foodview',compact('forms'));
+
+   }
+   public function editfood(Request $request , foods $form, string|int $id){
+    $form=$form->find($id);
+    return view('site/editfood',compact('form'));
+   }
+   public function editarfood(Request $request , foods $forms, string|int $id){
+    $forms=$forms->where('id',$id)->first();
+    $data=$request->only(['Foto1','Foto2','Foto3']);
+    $imageName1 = $request->titulo.'1.'.$request->Foto1->extension();
+    $imageName2 = $request->titulo.'2.'.$request->Foto2->extension();
+    $imageName3 = $request->titulo.'3.'.$request->Foto3->extension();
+
+    // Public Folder
+    $imagepath1=$request->file('Foto1')->storeAs('products', $imageName1);
+    $imagepath2=$request->file('Foto2')->storeAs('products', $imageName2);
+    $imagepath3=$request->file('Foto3')->storeAs('products', $imageName3);
+    $data['Foto1']= $imagepath1;
+    $data['Foto2']= $imagepath2;
+    $data['Foto3']= $imagepath3;
+    $forms->update($data);
+    $forms->update($request->only(['titulo','lista_comidas','lista_bebidas']));
+    $forms=$forms->all();
+    return view('site/foodview',compact('forms'));
+
+   }
    
    public function login(){
     return view('site/login');
