@@ -35,4 +35,10 @@ class CalendarioController extends Controller
             return back();
         }
     }
+    public function calendarioreserva(Calendario $forms, Request $request){
+       
+        $forms=$forms->all();
+        return view('site/agendareserva',compact('forms'));
+       
+    }
 }

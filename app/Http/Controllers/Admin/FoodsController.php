@@ -36,4 +36,14 @@ class FoodsController extends Controller
             return redirect()->route('fazerlogin.index');
         }
     }
+    public function foodaniversariante(foods $forms , Request $request){
+        $forms=$forms->all();
+        $data= $request->all();
+        if ($data['food']==='food'){
+            return view('site/foodaniversariante',compact('forms')); 
+        }
+        else{
+            return redirect()->route('fazerlogin.index');
+        }
+    }
 }

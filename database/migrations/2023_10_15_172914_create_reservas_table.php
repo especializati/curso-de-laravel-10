@@ -16,6 +16,10 @@ return new class extends Migration
             $table->date("data");
             $table->time("hora_inicial");
             $table->time("hora_final");
+            $table->string("titulocomida");
+            $table->int("numeroconvidados");
+            $table->int("idadeaniversariante");
+            $table->string("nomeaniversariante");
             $table->timestamps();
         });
     }

@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\FormsController;
 use App\Http\Controllers\Admin\CalendarioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FoodsController;
+use App\Http\Controllers\Admin\ReservasController;
 Route::put('/{id}',[FormsController::class,'editaragenda'])->name('editaragenda.index');
 Route::put('/food/{id}',[FormsController::class,'editarfood'])->name('editarfood.index');
 Route::get('/formulario', [FormsController::class,'formulario'])->name('formulario.index');
@@ -20,11 +21,15 @@ Route::get('/agenda',[CalendarioController::class,'agenda'])->name('agenda.index
 Route::get('/',[FormsController::class,'paginapublica'])->name('paginainicial.index');
 Route::post('/food',[FoodsController::class,'foodintro'])->name('foodintro.index');
 Route::post('/foodview',[FoodsController::class,'foodsview'])->name('foodview.index');
+Route::post('/foodaniversariante',[FoodsController::class,'foodaniversariante'])->name('foodaniversariante.index');
 Route::get('/edit/{id}', [FormsController::class, 'editdate'])->name('editdate.index');
 Route::get('/editfood/{id}', [FormsController::class, 'editfood'])->name('editfood.index');
 Route::get('/delete/{id}', [FormsController::class, 'deleteagenda'])->name('delete.index');
 Route::get('/deletefood/{id}', [FormsController::class, 'deletefood'])->name('deletefood.index');
 Route::post('/inseriragenda',[CalendarioController::class,'novaagenda'])->name('novaagenda.index');
+Route::post('/calendarioreserva',[CalendarioController::class,'calendarioreserva'])->name('calendarioreserva.index');
+Route::get('/reserva/{id}', [ReservasController::class, 'novareserva'])->name('fazerreserva.index');
+Route::get('/fazerreserva/{id}', [ReservasController::class, 'inserirreserva'])->name('inserirreserva.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
