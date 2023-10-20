@@ -20,7 +20,8 @@
     <input type="hidden" value="food" name="food">
     <button type="submit" name="food1">food</button>
 </form>
-<form action="{{route('calendarioreserva.index')}}" method="POST">
+<form action="{{route('calendarioreserva.index',$forms->nome)}}" method="POST">
+    @method('put')
     @csrf()
     <input type="hidden" value="reserva" name="reserva">
     <button type="submit" name="reserva">food</button>

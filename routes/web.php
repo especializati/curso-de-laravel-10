@@ -27,9 +27,9 @@ Route::get('/editfood/{id}', [FormsController::class, 'editfood'])->name('editfo
 Route::get('/delete/{id}', [FormsController::class, 'deleteagenda'])->name('delete.index');
 Route::get('/deletefood/{id}', [FormsController::class, 'deletefood'])->name('deletefood.index');
 Route::post('/inseriragenda',[CalendarioController::class,'novaagenda'])->name('novaagenda.index');
-Route::post('/calendarioreserva',[CalendarioController::class,'calendarioreserva'])->name('calendarioreserva.index');
-Route::get('/reserva/{id}', [ReservasController::class, 'novareserva'])->name('fazerreserva.index');
-Route::get('/fazerreserva/{id}', [ReservasController::class, 'inserirreserva'])->name('inserirreserva.index');
+Route::put('/calendarioreserva/{nome}',[CalendarioController::class,'calendarioreserva'])->name('calendarioreserva.index');
+Route::get('{nome}/reserva/{id}', [ReservasController::class, 'novareserva'])->name('fazerreserva.index');
+Route::put('/fazerreserva/{id}/{nome}', [ReservasController::class, 'inserirreserva'])->name('inserirreserva.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
