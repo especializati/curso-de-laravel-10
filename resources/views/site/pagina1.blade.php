@@ -18,11 +18,11 @@
 <form action="{{route('foodaniversariante.index')}}" method="POST">
     @csrf()
     <input type="hidden" value="food" name="food">
-    <button type="submit" name="food1">food</button>
+    <button type="submit" name="food1">Ver pacotes de comida</button>
 </form>
 <form action="{{route('calendarioreserva.index',$forms->nome)}}" method="POST">
     @method('put')
     @csrf()
     <input type="hidden" value="reserva" name="reserva">
-    <button type="submit" name="reserva">food</button>
+    <button type="submit" name="reserva">Fazer reserva</button>
 </form>

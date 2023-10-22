@@ -1,4 +1,4 @@
-<h1>Data {{$cal->id}}</h1>
+<h1>Reserva {{$cal->id}}</h1>
 <form action="{{route('inserirreserva.index',[$cal->id,$usu->nome] )}}" method="POST">
     @method('put')
     @csrf()  

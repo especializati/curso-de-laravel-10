@@ -19,14 +19,16 @@ class ReservasController extends Controller
 
     }
     public function inserirreserva(Calendario $cal,foods $food, string|int $id, reservas $res, Request $request,string|int $nome, Forms $usu){
-        $cal=$cal->find($id);
+        $cal=$cal->where('id',$id)->first();
+        $cal=$cal->only(['data','hora_inicial','hora_final']);
         $foods=$request->only(['titulocomida']);
-        $forms= $request->only(['login','idadeaniversariante','nomeaniversariante','numeroconvidados']);
         $data= $request->only(['status']);
         $data['status']='pendente';
-        $res=$res->create([$cal,$food,$forms,$data]);
-        $res=$res->find($nome);
+        $forms= $request->only(['login','titulocomida','idadeaniversariante','nomeaniversariante','numeroconvidados']);
+        $res=$res->create(array_merge($forms,$cal,$data));
+        $res=$res->where('login',$nome)->get();
         return view('site/verreservas',compact('res'));
+       
 
     }
 }
