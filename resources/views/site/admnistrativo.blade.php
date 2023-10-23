@@ -9,5 +9,11 @@
     <input type="hidden" value="food" name="food">
     <button type="submit" name="food1">CRUD food</button>
 </form>
+<form action="{{route('respostasadmin2.index')}}" method="POST">
+    @csrf()
+    <input type="hidden" value="reservas" name="reservas">
+    <button type="submit" name="reservas1">Novas reservas</button>
+</form>
+
 
     

@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Forms;
 use App\Models\foods;
 use App\Models\Calendario;
+use App\Models\reservas;
 
 class FormsController extends Controller
 {
@@ -62,6 +63,16 @@ class FormsController extends Controller
     $data= $request->all();
     if ($data['food']==='food'){
         return view('site/food');
+    }
+    else{
+        return redirect()->route('fazerlogin.index');
+    }
+   }
+   public function RespostasAdmin2(Request $request, reservas $res){
+    $data= $request->all();
+    $res=$res->all();
+    if ($data['reservas']==='reservas'){
+        return view('site/reservasadm',compact('res'));
     }
     else{
         return redirect()->route('fazerlogin.index');

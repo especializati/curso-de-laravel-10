@@ -31,4 +31,16 @@ class ReservasController extends Controller
        
 
     }
+    public function aprovar(reservas $res,string|int $id){
+       $res=$res->where('id',$id)->first();
+       $res['status']='aprovado';
+       $res->update();
+       $res=$res->all();
+       return view('site/reservasadm',compact('res'));
+    }
+    public function negar(reservas $res, string|int $id){
+        $res=$res->all();
+        
+ 
+     }
 }

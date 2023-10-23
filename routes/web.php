@@ -16,6 +16,7 @@ Route::get('/login1', [FormsController::class,'login'])->name('login.index');
 Route::post('/login1', [FormsController::class,'fazerlogin'])->name('fazerlogin.index');
 Route::post('/admin1',[FormsController::class,'RespostasAdmin'])->name('respostasadmin.index');
 Route::post('/admin2',[FormsController::class,'RespostasAdmin1'])->name('respostasadmin1.index');
+Route::post('/admin3',[FormsController::class,'RespostasAdmin2'])->name('respostasadmin2.index');
 Route::post('/agendaCRUD',[CalendarioController::class,'inseriragenda'])->name('inseriragenda.index');
 Route::get('/agenda',[CalendarioController::class,'agenda'])->name('agenda.index');
 Route::get('/',[FormsController::class,'paginapublica'])->name('paginainicial.index');
@@ -30,6 +31,8 @@ Route::post('/inseriragenda',[CalendarioController::class,'novaagenda'])->name('
 Route::put('/calendarioreserva/{nome}',[CalendarioController::class,'calendarioreserva'])->name('calendarioreserva.index');
 Route::get('{nome}/reserva/{id}', [ReservasController::class, 'novareserva'])->name('fazerreserva.index');
 Route::put('/fazerreserva/{id}/{nome}', [ReservasController::class, 'inserirreserva'])->name('inserirreserva.index');
+Route::get('admin/reservaaprovar/{id}', [ReservasController::class, 'aprovar'])->name('aprovar.index');
+Route::get('admin/reservanegar/{id}', [ReservasController::class, 'negar'])->name('negar.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
