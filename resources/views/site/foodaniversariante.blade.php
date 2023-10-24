@@ -16,6 +16,7 @@
             <td> <img src="{{url("storage/{$forms->Foto3} ")}}" widht=50 height=50 /> </td>
             <td><?php echo($a)?></td>
             <td><?php echo ($b)?></td>
+            <td>{{$forms->preço}}</td>
             </td>
             </tr>
             

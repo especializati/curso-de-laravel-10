@@ -131,7 +131,7 @@ class FormsController extends Controller
     $data['Foto2']= $imagepath2;
     $data['Foto3']= $imagepath3;
     $forms->update($data);
-    $forms->update($request->only(['titulo','lista_comidas','lista_bebidas']));
+    $forms->update($request->only(['titulo','lista_comidas','lista_bebidas','preço']));
     $forms=$forms->all();
     return view('site/foodview',compact('forms'));
 

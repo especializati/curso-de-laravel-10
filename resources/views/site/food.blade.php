@@ -4,6 +4,7 @@
     <input type="file" name="Foto2">
     <input type="file" name="Foto3">
     <input type="text" name="titulo">
+    <input type="number" name="preço">
     <textarea id="editor" name="lista_comidas"></textarea>
     <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
     <script>

@@ -22,27 +22,28 @@
             <td>{{$res->numeroconvidados}}</td>
             <td>{{$res->nomeaniversariante}}</td>
             <td>{{$res->idadeaniversariante}}</td>
-            <td id="aprovar" value= "{{$res->status}}"><?php echo(<a href="{{route('aprovar.index',$res->id)}}">aprovar</a>);?></td>
-            <td id="negar" value= "{{$res->status}}">{{$res->status}}</td>
+            <td id="aprovar{{$res->id}}" value= "{{$res->status}}">{{$res->status}}</td>
+            <td id="negar{{$res->id}}" value= "{{$res->status}}">{{$res->status}}</td>
            </tr>
-           
-            <script>
-             <?php foreach($res as $res)?>
-             var element=document.getElementById("aprovar");
-             var element2=document.getElementById("negar");
+           <script>
+             var element=document.getElementById("aprovar{{$res->id}}");
+             var element2=document.getElementById("negar{{$res->id}}");
+             
               if(element.innerText=="pendente"){
                  element.innerHTML='<a href="{{route('aprovar.index',$res->id)}}">aprovar</a>';
                  element2.innerHTML='<a href="{{route('negar.index',$res->id)}}">negar</a>';
               }
               if(element.innerText=="aprovado"){
                  element.innerHTML='aprovado';
+                 element2.innerHTML='';
               }
               if(element.innerText=="negado"){
                  element.innerHTML='negado';
+                 element2.innerHTML='';
               }
-            
             </script>
         @endforeach
-        
+        <script>
+
   </tbody>
 </table>

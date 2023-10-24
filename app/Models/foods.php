@@ -14,7 +14,8 @@ class foods extends Model
         'Foto2',
         'Foto3',
         'lista_comidas',
-        'lista_bebidas'
+        'lista_bebidas',
+        'preço'
 
     ];
 }

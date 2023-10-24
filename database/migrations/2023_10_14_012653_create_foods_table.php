@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string("Foto3");
             $table->string("lista_comidas");
             $table->string("lista_bebidas");
+            $table->float("preço");
             $table->timestamps();
         });
     }
