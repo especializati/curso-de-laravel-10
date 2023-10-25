@@ -31,15 +31,25 @@ class ReservasController extends Controller
        
 
     }
-    public function aprovar(reservas $res,string|int $id){
+    public function aprovar(reservas $res,string|int $id, Calendario $cal){
        $res=$res->where('id',$id)->first();
        $res['status']='aprovado';
        $res->update();
+       $cal=$cal->all();
+       foreach($cal as $cal){
+        if($cal->data===$res['data'] && $cal->hora_inicial===$res['hora_inicial'] && $cal->hora_final===$res['hora_final']){
+            $cal->delete();
+        }
+       }
        $res=$res->all();
        return view('site/reservasadm',compact('res'));
     }
     public function negar(reservas $res, string|int $id){
-        $res=$res->all();
+        $res=$res->where('id',$id)->first();
+       $res['status']='negado';
+       $res->update();
+       $res=$res->all();
+       return view('site/reservasadm',compact('res'));
         
  
      }

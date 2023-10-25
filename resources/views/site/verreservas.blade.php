@@ -20,8 +20,25 @@
             <td>{{$res->numeroconvidados}}</td>
             <td>{{$res->nomeaniversariante}}</td>
             <td>{{$res->idadeaniversariante}}</td>
-            <td>{{$res->status}}</td>
+            <td id="status{{$res->id}}">{{$res->status}}</td>
            </tr>
+           <script>
+             var element=document.getElementById("status{{$res->id}}");
+             
+             
+              if(element.innerText=="pendente"){
+                 element.innerHTML='pendente';
+                 
+              }
+              if(element.innerText=="aprovado"){
+                 element.innerHTML='<a href="">Ir para o pre-festa</a>';
+                 element2.innerHTML='';
+              }
+              if(element.innerText=="negado"){
+                 element.innerHTML='negado';
+                
+              }
+            </script>
         @endforeach
   </tbody>
 </table>
