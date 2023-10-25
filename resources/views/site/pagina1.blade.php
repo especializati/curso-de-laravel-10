@@ -26,3 +26,9 @@
     <input type="hidden" value="reserva" name="reserva">
     <button type="submit" name="reserva">Fazer reserva</button>
 </form>
+<form action="{{route('verreserva.index',$forms->nome )}}" method="POST">
+    @method('put')
+    @csrf()  
+    <input type="hidden" value="verreserva" name="verreserva">
+    <button type="submit" name="verreserva"> Ver reserva</button>
+</form>

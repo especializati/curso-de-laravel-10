@@ -50,7 +50,12 @@ class ReservasController extends Controller
        $res->update();
        $res=$res->all();
        return view('site/reservasadm',compact('res'));
+      
         
  
+     }
+     public function verreserva(string|int $nome,reservas $res){
+        $res=$res->where('login',$nome)->get();
+        return view('site/verreservas',compact('res'));
      }
 }

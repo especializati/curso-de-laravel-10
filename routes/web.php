@@ -33,6 +33,7 @@ Route::get('{nome}/reserva/{id}', [ReservasController::class, 'novareserva'])->n
 Route::put('/fazerreserva/{id}/{nome}', [ReservasController::class, 'inserirreserva'])->name('inserirreserva.index');
 Route::get('admin/reservaaprovar/{id}', [ReservasController::class, 'aprovar'])->name('aprovar.index');
 Route::get('admin/reservanegar/{id}', [ReservasController::class, 'negar'])->name('negar.index');
+Route::put('/verreserva/{nome}', [ReservasController::class, 'verreserva'])->name('verreserva.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
