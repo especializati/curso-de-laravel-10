@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\CalendarioController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\FoodsController;
 use App\Http\Controllers\Admin\ReservasController;
+use App\Http\Controllers\Admin\ConvidadosController;
 Route::put('/{id}',[FormsController::class,'editaragenda'])->name('editaragenda.index');
 Route::put('/food/{id}',[FormsController::class,'editarfood'])->name('editarfood.index');
 Route::get('/formulario', [FormsController::class,'formulario'])->name('formulario.index');
@@ -34,6 +35,9 @@ Route::put('/fazerreserva/{id}/{nome}', [ReservasController::class, 'inserirrese
 Route::get('admin/reservaaprovar/{id}', [ReservasController::class, 'aprovar'])->name('aprovar.index');
 Route::get('admin/reservanegar/{id}', [ReservasController::class, 'negar'])->name('negar.index');
 Route::put('/verreserva/{nome}', [ReservasController::class, 'verreserva'])->name('verreserva.index');
+Route::get('/festa/{id}', [ReservasController::class, 'prefesta'])->name('prefesta.index');
+Route::put('/festa/convidados/{id}', [ConvidadosController::class, 'novoconvidado'])->name('convidados.index');
+Route::put('/festa/novosconvidados/{id}', [ConvidadosController::class, 'novosconvidados'])->name('novosconvidados.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

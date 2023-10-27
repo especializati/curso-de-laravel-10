@@ -31,7 +31,7 @@
                  
               }
               if(element.innerText=="aprovado"){
-                 element.innerHTML='<a href="">Ir para o pre-festa</a>';
+                 element.innerHTML='<a href="{{route('prefesta.index', $res->id)}}">Ir para o pre-festa</a>';
                  element2.innerHTML='';
               }
               if(element.innerText=="negado"){

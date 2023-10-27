@@ -58,4 +58,8 @@ class ReservasController extends Controller
         $res=$res->where('login',$nome)->get();
         return view('site/verreservas',compact('res'));
      }
+     public function prefesta(string|int $id,reservas $res){
+        $res=$res->where('id',$id)->first();
+        return view('site/prefesta',compact('res'));
+     }
 }
