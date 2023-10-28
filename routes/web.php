@@ -36,7 +36,7 @@ Route::get('admin/reservaaprovar/{id}', [ReservasController::class, 'aprovar'])-
 Route::get('admin/reservanegar/{id}', [ReservasController::class, 'negar'])->name('negar.index');
 Route::put('/verreserva/{nome}', [ReservasController::class, 'verreserva'])->name('verreserva.index');
 Route::get('/festa/{id}', [ReservasController::class, 'prefesta'])->name('prefesta.index');
-Route::put('/festa/convidados/{id}', [ConvidadosController::class, 'novoconvidado'])->name('convidados.index');
+Route::get('/festa/convidados/{id}', [ConvidadosController::class, 'novoconvidado'])->name('convidados.index');
 Route::put('/festa/novosconvidados/{id}', [ConvidadosController::class, 'novosconvidados'])->name('novosconvidados.index');
 Route::put('/festa/verconvidados/{id}', [ConvidadosController::class, 'verconvidados'])->name('verconvidados.index');
 
