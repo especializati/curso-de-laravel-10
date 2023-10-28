@@ -21,7 +21,7 @@
     for(var i=0;i<number.value;i++){
     HTMLTemporario = $wrapper.innerHTML;
     
-    HTMLNovo = '<br> <input type="hidden" value="{{$res->id}}" name="id_festa"> <input name="CPF"> <input name="idade"> <input name="nome_convidado"> </br>';
+    HTMLNovo = '<br> <input type="hidden" value="{{$res->id}}" name="id_festa[]"> <input name="CPF[]"> <input name="idade[]"> <input name="nome_convidado[]"> </br>';
     HTMLTemporario = HTMLNovo + HTMLTemporario;
     $wrapper.innerHTML = HTMLTemporario;
     }}});

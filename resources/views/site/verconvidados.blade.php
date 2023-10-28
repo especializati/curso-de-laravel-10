@@ -11,6 +11,7 @@
             <td>{{$cos->nome_convidado}}</td>
             <td>{{$cos->CPF}}</td>
             <td>{{$cos->idade}}</td>
+            <td><a href="{{route('deleteconvidado.index',[$cos->id,$cos->id_festa])}}">Bloquear</a>
            </tr>
         @endforeach
   </tbody>
