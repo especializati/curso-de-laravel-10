@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer("id_festa");
             $table->string("nome_convidado");
-            $table->integer("CPF");
+            $table->string("CPF");
             $table->integer("idade");
             $table->timestamps();
         });

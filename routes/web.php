@@ -38,6 +38,7 @@ Route::put('/verreserva/{nome}', [ReservasController::class, 'verreserva'])->nam
 Route::get('/festa/{id}', [ReservasController::class, 'prefesta'])->name('prefesta.index');
 Route::put('/festa/convidados/{id}', [ConvidadosController::class, 'novoconvidado'])->name('convidados.index');
 Route::put('/festa/novosconvidados/{id}', [ConvidadosController::class, 'novosconvidados'])->name('novosconvidados.index');
+Route::put('/festa/verconvidados/{id}', [ConvidadosController::class, 'verconvidados'])->name('verconvidados.index');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

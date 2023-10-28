@@ -13,8 +13,13 @@ class ConvidadosController extends Controller
         return view('site/novoconvidado',compact('res')) ;
     }
     public function novosconvidados(string|int $id, reservas $res, convidados $cos,Request $request){
+        
         $data=$request->all();
         $cos=$cos->create($data);
+        
+        return view('site/convidados',compact('cos')) ;
+    }
+    public function verconvidados(string|int $id, reservas $res, convidados $cos,Request $request){
         $cos=$cos->where('id_festa',$id)->get();
         return view('site/verconvidados',compact('cos')) ;
     }
