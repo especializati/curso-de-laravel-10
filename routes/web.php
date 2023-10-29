@@ -43,6 +43,7 @@ Route::get('/delete/convidado/{id}/{id_festa}', [ConvidadosController::class, 'd
 Route::put('/festa/vercomida/{id}', [FoodsController::class, 'verpacotedecomida'])->name('verpacotedecomida.index');
 Route::put('/festa/alterarcomida/{id}/{titulo}', [FoodsController::class, 'mudarcomida'])->name('mudarcomida.index');
 Route::get('/festa/comidaalterada/{id}/{titulo}', [FoodsController::class, 'alterarcomida'])->name('alterarcomida.index');
+Route::post('/inserircomida',[FoodsController::class,'novacomida'])->name('novafood.index');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

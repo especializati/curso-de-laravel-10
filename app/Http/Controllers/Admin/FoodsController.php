@@ -65,4 +65,14 @@ class FoodsController extends Controller
         $res->update();
         $food=$food->where('titulo', $res['titulocomida'])->first();
         return view('site/verpacotedecomida', compact('food','res'));
-}}
+}
+    public function novacomida(foods $forms , Request $request){
+    $data= $request->all();
+    if ($data['food']==='food'){
+        return view('site/food'); 
+    }
+    else{
+        return redirect()->route('fazerlogin.index');
+    }
+   }
+}

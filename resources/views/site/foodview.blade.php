@@ -1,4 +1,8 @@
-
+<form action="{{route('novafood.index')}}" method="POST">
+  @csrf()
+  <input type="hidden" value="food" name="food">
+  <button type="submit"> Nova Comida</button>
+</form>
 <table>
   <thread>
     <th>TITULO</th>

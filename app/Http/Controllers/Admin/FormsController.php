@@ -59,10 +59,11 @@ class FormsController extends Controller
         return redirect()->route('fazerlogin.index');
     }
    }
-   public function RespostasAdmin1(Request $request){
+   public function RespostasAdmin1(Request $request,foods $food){
     $data= $request->all();
+    $forms=$food->all();
     if ($data['food']==='food'){
-        return view('site/food');
+        return view('site/foodview',compact('forms'));
     }
     else{
         return redirect()->route('fazerlogin.index');
