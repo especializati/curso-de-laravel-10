@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\foods;
+use App\Models\reservas;
 
 class FoodsController extends Controller
 {
@@ -46,4 +47,22 @@ class FoodsController extends Controller
             return redirect()->route('fazerlogin.index');
         }
     }
-}
+    public function verpacotedecomida(foods $food, string|int $id, reservas $res){
+        $res=$res->where('id',$id)->first();
+        $food=$food->where('titulo', $res['titulocomida'])->first();
+        return view('site/verpacotedecomida', compact('food','res'));
+    }
+    public function mudarcomida(foods $food, string|int $id,string|int $titulo,reservas $res){
+        $data1=$food->where('titulo',$titulo)->first();
+        $data2=$food->all();
+        $data3= $res->where('id',$id)->first();
+        return view('site/mudarcomida',compact('data1','data2','data3'));
+    }
+    public function alterarcomida(foods $food, string|int $id,string|int $titulo,reservas $res, Request $request){
+        $res=$res->where('id',$id)->first();
+        $food=$food->where('titulo',$titulo)->first();
+        $res['titulocomida']=$food['titulo'];
+        $res->update();
+        $food=$food->where('titulo', $res['titulocomida'])->first();
+        return view('site/verpacotedecomida', compact('food','res'));
+}}

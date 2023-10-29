@@ -13,3 +13,12 @@
     <button type="submit"> ver convidados</button>
 </form>
 </br>
+</br>
+<br>
+<form action="{{route('verpacotedecomida.index', $res->id )}}" method="POST">
+    @method('put')
+    @csrf()
+    <input type="hidden" value="pacotedecomida" name="pacotedecomida">
+    <button type="submit"> Ver pacote de comida escolhido</button>
+</form>
+</br>

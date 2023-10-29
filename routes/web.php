@@ -40,7 +40,9 @@ Route::get('/festa/convidados/{id}', [ConvidadosController::class, 'novoconvidad
 Route::put('/festa/novosconvidados/{id}', [ConvidadosController::class, 'novosconvidados'])->name('novosconvidados.index');
 Route::put('/festa/verconvidados/{id}', [ConvidadosController::class, 'verconvidados'])->name('verconvidados.index');
 Route::get('/delete/convidado/{id}/{id_festa}', [ConvidadosController::class, 'deleteconvidado'])->name('deleteconvidado.index');
-
+Route::put('/festa/vercomida/{id}', [FoodsController::class, 'verpacotedecomida'])->name('verpacotedecomida.index');
+Route::put('/festa/alterarcomida/{id}/{titulo}', [FoodsController::class, 'mudarcomida'])->name('mudarcomida.index');
+Route::get('/festa/comidaalterada/{id}/{titulo}', [FoodsController::class, 'alterarcomida'])->name('alterarcomida.index');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
