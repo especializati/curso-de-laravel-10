@@ -51,6 +51,9 @@ Route::put('/cancelarreservaadm/{id}',[ReservasController::class,'cancelaradm'])
 Route::post('/inserirrecomedacao',[RecomendadoController::class,'novarecomedacao'])->name('novarecomendacao.index');
 Route::post('/inserirnovarecomedacao',[RecomendadoController::class,'inserirrecomendacao'])->name('inserirrecomendacao.index');
 Route::post('/verrecomendados',[RecomendadoController::class,'verrecomendados'])->name('verrecomendados.index');
+Route::get('/editarrecomendados/{id}',[RecomendadoController::class,'updaterecomendados'])->name('updaterecomendados.index');
+Route::put('/atualizarrecomendados/{id}',[RecomendadoController::class,'atualizarrecomendados'])->name('atualizarrecomendacao.index');
+Route::get('/deletararrecomendados/{id}',[RecomendadoController::class,'deleterecomendados'])->name('deleterecomendados.index');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

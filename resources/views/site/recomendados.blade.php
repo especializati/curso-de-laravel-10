@@ -15,6 +15,8 @@
           
            <tr>
            <td>{{$recomend->recomendacoes}}</td>
+           <td><a href="{{route('updaterecomendados.index',$recomend->id)}}">Editar</a>
+            <td><a href="{{route('deleterecomendados.index',$recomend->id)}}">Delete</a>
            
            </tr>
            

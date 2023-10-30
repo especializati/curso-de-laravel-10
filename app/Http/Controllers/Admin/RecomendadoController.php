@@ -37,4 +37,24 @@ class RecomendadoController extends Controller
         return view('site/recomendadosaniversariante',compact('recomend'));}
         
     }
+    public function updaterecomendados(recomendado $recomend, Request $request,string|int $id){
+        $recomend=$recomend->where('id',$id)->first();
+        return view('site/recomendadosupdate',compact('recomend'));
+    }
+    public function atualizarrecomendados(recomendado $recomend, Request $request,string|int $id){
+        $recomend=$recomend->where('id',$id)->first();
+        $data=$request->all();
+        $recomend->update($data);
+        $recomend=$recomend->all();
+        return view('site/recomendados',compact('recomend'));
+    }
+    public function deleterecomendados(recomendado $recomend, Request $request,string|int $id){
+        $recomend=$recomend->where('id',$id)->first();
+    
+        $recomend->delete();
+        $recomend=$recomend->all();
+        return view('site/recomendados',compact('recomend'));
+    }
+        
+    
 }

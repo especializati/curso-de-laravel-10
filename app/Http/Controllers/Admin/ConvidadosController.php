@@ -19,7 +19,8 @@ class ConvidadosController extends Controller
                 'nome_convidado' => $request->input('nome_convidado')[$key],
                 'id_festa'=>$request->input('id_festa')[$key],
                 'idade'=>$request->input('idade')[$key],
-                'CPF'=>$request->input('CPF')[$key]
+                'CPF'=>$request->input('CPF')[$key],
+                
                 // etc
             ]);
         }
