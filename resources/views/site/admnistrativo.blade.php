@@ -14,6 +14,11 @@
     <input type="hidden" value="reservas" name="reservas">
     <button type="submit" name="reservas1">Novas reservas</button>
 </form>
+<form action="{{route('respostasadmin3.index')}}" method="POST">
+    @csrf()
+    <input type="hidden" value="recomendacoes" name="recomendacoes">
+    <button type="submit" name="recomendacoes1">Novas recomendações</button>
+</form>
 
 
     

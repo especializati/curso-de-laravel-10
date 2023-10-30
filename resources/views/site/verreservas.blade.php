@@ -21,22 +21,25 @@
             <td>{{$res->nomeaniversariante}}</td>
             <td>{{$res->idadeaniversariante}}</td>
             <td id="status{{$res->id}}">{{$res->status}}</td>
+            <td id="cancelar{{$res->id}}">{{$res->status}}</td>
            </tr>
            <script>
              var element=document.getElementById("status{{$res->id}}");
+             var element2=document.getElementById("cancelar{{$res->id}}");
              
              
               if(element.innerText=="pendente"){
                  element.innerHTML='pendente';
-                 
+                 element2.innerHTML='';
               }
               if(element.innerText=="aprovado"){
                  element.innerHTML='<a href="{{route('prefesta.index', $res->id)}}">Ir para o pre-festa</a>';
                  element2.innerHTML='';
+
               }
               if(element.innerText=="negado"){
                  element.innerHTML='negado';
-                
+                 element2.innerHTML='';
               }
             </script>
         @endforeach

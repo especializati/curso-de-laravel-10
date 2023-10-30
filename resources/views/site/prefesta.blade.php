@@ -22,3 +22,17 @@
     <button type="submit"> Ver pacote de comida escolhido</button>
 </form>
 </br>
+<form action="{{route('cancelarreserva.index', $res->id )}}" method="POST">
+    @method('put')
+    @csrf()
+    <input type="hidden" value="cancelarreserva" name="cancelarreserva">
+    <button type="submit"> Cancelar</button>
+</form>
+</br>
+<br>
+<form action="{{route('verrecomendados.index' )}}" method="POST">
+    @csrf()
+    <input type="hidden" value="recomendados" name="recomendados">
+    <button type="submit"> Ver recomendados</button>
+</form>
+</br>
