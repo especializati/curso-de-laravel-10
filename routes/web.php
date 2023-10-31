@@ -54,6 +54,9 @@ Route::post('/verrecomendados',[RecomendadoController::class,'verrecomendados'])
 Route::get('/editarrecomendados/{id}',[RecomendadoController::class,'updaterecomendados'])->name('updaterecomendados.index');
 Route::put('/atualizarrecomendados/{id}',[RecomendadoController::class,'atualizarrecomendados'])->name('atualizarrecomendacao.index');
 Route::get('/deletararrecomendados/{id}',[RecomendadoController::class,'deleterecomendados'])->name('deleterecomendados.index');
+Route::post('/reservasoperacional',[ReservasController::class,'reservasoperacional'])->name('reservasoperacional.index');
+Route::get('/convidadosoperacional/{id}',[ConvidadosController::class,'convidadosoperacional'])->name('convidadosoperacional.index');
+Route::get('/aprovarconvidado/{id}/{id_festa}',[ConvidadosController::class,'aprovarconvidado'])->name('aprovarconvidado.index');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

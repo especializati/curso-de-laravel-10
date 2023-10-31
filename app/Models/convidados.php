@@ -12,7 +12,7 @@ class convidados extends Model
         'nome_convidado',
         'id_festa',
         'CPF',
-        'idade'
-
+        'idade',
+        'status'
     ];
 }

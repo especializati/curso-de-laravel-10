@@ -42,6 +42,10 @@ class FormsController extends Controller
                 return view('site/admnistrativo');
 
             }
+            if($forms->status==='o'){
+                return view('site/Operacional');
+
+            }
         
         }
        

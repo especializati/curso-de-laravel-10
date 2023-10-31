@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string("nome_convidado");
             $table->string("CPF");
             $table->integer("idade");
+            $table->enum('status',['confirmado','presente']);
             $table->timestamps();
         });
     }

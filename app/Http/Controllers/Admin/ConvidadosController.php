@@ -20,7 +20,8 @@ class ConvidadosController extends Controller
                 'id_festa'=>$request->input('id_festa')[$key],
                 'idade'=>$request->input('idade')[$key],
                 'CPF'=>$request->input('CPF')[$key],
-                
+                'status'=>'confirmado',
+
                 // etc
             ]);
         }
@@ -38,5 +39,17 @@ class ConvidadosController extends Controller
         $cos->delete();
         $cos=$cos->where('id_festa',$id_festa)->get();
         return view('site/verconvidados',compact('cos')) ;
+    }
+    public function convidadosoperacional(string|int $id, convidados $cos, reservas $res){
+        $cos=$cos->where('id_festa',$id)->get();
+        $res=$res->where('id',$id)->get();
+        return view('site/verconvidadosoperacional',compact('cos','res')) ;
+    }
+    public function aprovarconvidado(string|int $id,string|int $id_festa, convidados $cos, reservas $res){
+        $cos=$cos->where('id',$id)->first();
+        $cos['status']='presente';
+        $cos->update();
+        $cos=$cos->where('id_festa',$id_festa)->get();
+        return view('site/verconvidadosoperacional',compact('cos')) ;
     }
 }
