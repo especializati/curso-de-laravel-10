@@ -42,7 +42,7 @@ class ConvidadosController extends Controller
     }
     public function convidadosoperacional(string|int $id, convidados $cos, reservas $res){
         $cos=$cos->where('id_festa',$id)->get();
-        $res=$res->where('id',$id)->get();
+        $res=$res->where('id',$id)->first();
         return view('site/verconvidadosoperacional',compact('cos','res')) ;
     }
     public function aprovarconvidado(string|int $id,string|int $id_festa, convidados $cos, reservas $res){
@@ -50,6 +50,32 @@ class ConvidadosController extends Controller
         $cos['status']='presente';
         $cos->update();
         $cos=$cos->where('id_festa',$id_festa)->get();
-        return view('site/verconvidadosoperacional',compact('cos')) ;
+        $res=$res->where('id',$id_festa)->first();
+        return view('site/verconvidadosoperacional',compact('cos','res')) ;
+    }
+    public function novoconvidadooperacional(string|int $id, convidados $cos, reservas $res,Request $request){
+        $data=$request->all();
+        if($data['convidado']=='convidado'){
+        $res=$res->where('id',$id)->first();
+        return view('site/novoconvidadooperacional',compact('cos','res')) ;}
+    }
+    public function novosconvidadosoperacional(string|int $id, reservas $res, convidados $cos,Request $request){
+       
+        foreach($request->input('nome_convidado') as $key=>$value){
+            convidados::create([
+                'nome_convidado' => $request->input('nome_convidado')[$key],
+                'id_festa'=>$request->input('id_festa')[$key],
+                'idade'=>$request->input('idade')[$key],
+                'CPF'=>$request->input('CPF')[$key],
+                'status'=>'confirmado',
+
+                // etc
+            ]);
+        }
+
+        $cos=$cos->where('id_festa',$id)->get();
+        $res=$res->where('id',$id)->first();
+        
+        return view('site/verconvidadosoperacional',compact('cos','res')) ;
     }
 }

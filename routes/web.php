@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\{ReplySupportController, SupportController};
+
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\FormsController;
 use App\Http\Controllers\Admin\CalendarioController;
@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\FoodsController;
 use App\Http\Controllers\Admin\ReservasController;
 use App\Http\Controllers\Admin\ConvidadosController;
 use App\Http\Controllers\Admin\RecomendadoController;
+use App\Http\Controllers\Admin\OpinioesController;
 Route::put('/{id}',[FormsController::class,'editaragenda'])->name('editaragenda.index');
 Route::put('/food/{id}',[FormsController::class,'editarfood'])->name('editarfood.index');
 Route::get('/formulario', [FormsController::class,'formulario'])->name('formulario.index');
@@ -20,6 +21,7 @@ Route::post('/admin1',[FormsController::class,'RespostasAdmin'])->name('resposta
 Route::post('/admin2',[FormsController::class,'RespostasAdmin1'])->name('respostasadmin1.index');
 Route::post('/admin3',[FormsController::class,'RespostasAdmin2'])->name('respostasadmin2.index');
 Route::post('/admin4',[FormsController::class,'RespostasAdmin3'])->name('respostasadmin3.index');
+Route::post('/admin5',[FormsController::class,'RespostasAdmin4'])->name('respostasadmin4.index');
 Route::post('/agendaCRUD',[CalendarioController::class,'inseriragenda'])->name('inseriragenda.index');
 Route::get('/agenda',[CalendarioController::class,'agenda'])->name('agenda.index');
 Route::get('/',[FormsController::class,'paginapublica'])->name('paginainicial.index');
@@ -57,6 +59,10 @@ Route::get('/deletararrecomendados/{id}',[RecomendadoController::class,'deletere
 Route::post('/reservasoperacional',[ReservasController::class,'reservasoperacional'])->name('reservasoperacional.index');
 Route::get('/convidadosoperacional/{id}',[ConvidadosController::class,'convidadosoperacional'])->name('convidadosoperacional.index');
 Route::get('/aprovarconvidado/{id}/{id_festa}',[ConvidadosController::class,'aprovarconvidado'])->name('aprovarconvidado.index');
+Route::put('/festa/novosconvidadosoperacional/{id}', [ConvidadosController::class, 'novoconvidadooperacional'])->name('novoconvidadooperacional.index');
+Route::put('/festa/novosconvidadosoperacional1/{id}', [ConvidadosController::class, 'novosconvidadosoperacional'])->name('novosconvidadosoperacional.index');
+Route::put('/opiniao/{id}',[OpinioesController::class,'novaopiniao'])->name('opiniao.index');
+Route::post('/novaopiniao',[OpinioesController::class,'novaopiniaopost'])->name('novaopiniao.index');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

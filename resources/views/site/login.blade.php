@@ -5,3 +5,4 @@
     <input type="password" placeholder="senha" name="senha">
     <button type="submit">Fazer login</button>
 </form>
+<p>Não possui conta?<a href="{{route('cadastro.index')}}">Cadastrar</p>

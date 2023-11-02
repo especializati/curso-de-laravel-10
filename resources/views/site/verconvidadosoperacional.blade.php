@@ -9,8 +9,15 @@
             var confirmados=0;
             var presentes=0;
         </script>
+        <form action="{{route('novoconvidadooperacional.index', $res->id )}}" method="POST">
+            @method('put')
+            @csrf()
+            <input type="hidden" value="convidado" name="convidado">
+            <button type="submit"> novos convidados</button>
+        </form>
         <p id="confirmados"></p>
         <p id="presentes"></p>
+        <p>Pacote de comidas:{{$res->titulocomida}}</p>
           @foreach($cos as $cos)
           
              <tr>
@@ -34,7 +41,7 @@
                  if(element.innerText=="presente"){
                     element.innerHTML='presente';
                     presentes=presentes+1;
-   
+
                  }
                 HTMLPRESENTE='presentes:';
                 HTMLCONFIRMADO='confirmados:';

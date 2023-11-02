@@ -10,6 +10,7 @@ use App\Models\foods;
 use App\Models\Calendario;
 use App\Models\reservas;
 use App\Models\recomendado;
+use App\Models\opinioes;
 
 class FormsController extends Controller
 {
@@ -23,12 +24,20 @@ class FormsController extends Controller
    }
    public function cadastrar(Request $request, Forms $formu){
     $data= $request->all();
-    $data['status']='a';
-    $data['senha'] = Hash::make($data['senha']);
-    $formu=$formu->create($data);
-    return redirect()->route('formulario.index');
+    $forms= $formu->all();
+    foreach($forms as $forms){
+        if($data['nome']==$forms->nome ){
+            dd('login já existente');
+       
+    }
+
 
    }
+   $data['status']='a';
+   $data['senha'] = Hash::make($data['senha']);
+   $formu=$formu->create($data);
+   return redirect()->route('login.index');
+}
    public function fazerlogin(Request $request, Forms $formu ){
     $formu= $formu->all();
     $data= $request->all();
@@ -89,6 +98,16 @@ class FormsController extends Controller
     $recomend=$recomend->all();
     if ($data['recomendacoes']==='recomendacoes'){
         return view('site/recomendados',compact('recomend'));
+    }
+    else{
+        return redirect()->route('fazerlogin.index');
+    }
+   }
+   public function RespostasAdmin4(Request $request, opinioes $op){
+    $data= $request->all();
+    $op=$op->all();
+    if ($data['opiniao']=='opiniao'){
+        return view('site/opiniaoadm',compact('op'));
     }
     else{
         return redirect()->route('fazerlogin.index');

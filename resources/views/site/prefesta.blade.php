@@ -35,4 +35,10 @@
     <input type="hidden" value="recomendados" name="recomendados">
     <button type="submit"> Ver recomendados</button>
 </form>
+<form action="{{route('opiniao.index',$res->id )}}" method="POST">
+    @method('put')
+    @csrf()
+    <input type="hidden" value="opiniao" name="opiniao">
+    <button type="submit"> Dê sua opinião</button>
+</form>
 </br>
