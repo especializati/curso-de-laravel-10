@@ -84,4 +84,8 @@ class ReservasController extends Controller
         $res=$res->where('status','aprovado')->get();
         return view('site/verreservasoperacional',compact('res'));
      }
+     public function datasoperacional(reservas $res){
+      $res=$res->where('status','aprovado')->get();
+      return view('site/verdatasoperacional',compact('res'));
+   }
 }

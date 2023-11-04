@@ -63,6 +63,7 @@ Route::put('/festa/novosconvidadosoperacional/{id}', [ConvidadosController::clas
 Route::put('/festa/novosconvidadosoperacional1/{id}', [ConvidadosController::class, 'novosconvidadosoperacional'])->name('novosconvidadosoperacional.index');
 Route::put('/opiniao/{id}',[OpinioesController::class,'novaopiniao'])->name('opiniao.index');
 Route::post('/novaopiniao',[OpinioesController::class,'novaopiniaopost'])->name('novaopiniao.index');
+Route::post('/datasoperacional',[ReservasController::class,'datasoperacional'])->name('datasoperacional.index');
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
