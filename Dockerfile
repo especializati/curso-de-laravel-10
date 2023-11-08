@@ -4,6 +4,8 @@ FROM php:8.1-fpm
 ARG user=xastrinho
 ARG uid=1000
 
+RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     git \
