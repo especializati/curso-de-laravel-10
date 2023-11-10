@@ -4,12 +4,15 @@ use App\Http\Controllers\Admin\{ReplySupportController, SupportController};
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use Illuminate\Http\Request;
+
 
 Route::get('/contato', [SiteController::class, 'contact']);
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 
-Route::get('/dashboard', function () {
+Route::post('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -17,6 +20,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::post('/login/custom', [LoginController::class, 'auth'])->name('login.custom');
 
     Route::post('/supports/{id}/replies', [ReplySupportController::class, 'store'])->name('replies.store');
     Route::delete('/supports/{id}/replies/{reply}', [ReplySupportController::class, 'destroy'])->name('replies.destroy');
@@ -29,6 +33,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/supports/create', [SupportController::class, 'create'])->name('supports.create');
     Route::post('/supports', [SupportController::class, 'store'])->name('supports.store');
     Route::get('/supports', [SupportController::class, 'index'])->name('supports.index');
+  
+
+
 });
 
 require __DIR__ . '/auth.php';
