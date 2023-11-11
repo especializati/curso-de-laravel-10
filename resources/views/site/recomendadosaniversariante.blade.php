@@ -1,5 +1,5 @@
 <h1>RECOMENDAÇÕES</h1>
-<table>
+<table width="100%" border="1px">
   <thread>
     <th>recomendações</th>
     

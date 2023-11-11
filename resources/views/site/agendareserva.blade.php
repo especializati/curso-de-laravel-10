@@ -1,4 +1,4 @@
-<table>
+<table width="100%" border="1px">
   <thread>
     <th>Data</th>
     <th>Hora de início</th>

@@ -1,5 +1,5 @@
 <h1>OPINIÕES</h1>
-<table>
+<table width="100%" border="1px">
     <thread>
       <th>Nome do Aniversariante</th>
       <th>Resultado da pesquisa        </th>

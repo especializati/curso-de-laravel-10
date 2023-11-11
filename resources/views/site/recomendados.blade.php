@@ -4,7 +4,7 @@
     <input type="hidden" value="recomendacao" name="recomendacao">
     <button type="submit"> Nova Recomendação</button>
 </form>
-<table>
+<table width="100%" border="1px">
   <thread>
     <th>recomendações</th>
     

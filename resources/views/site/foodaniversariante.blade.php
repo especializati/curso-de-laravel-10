@@ -1,4 +1,4 @@
-<table>
+<table width=200 height=100 border="1px">
   <thread>
     <th>TITULO</th>
     <th>fotos</th>
@@ -11,9 +11,9 @@
             $b=$forms->lista_bebidas;?>
            <tr>
             <td>{{$forms->titulo}}</td>
-            <td> <img src="{{url("storage/{$forms->Foto1} ")}}" widht=50 height=50 /> </td>
-            <td> <img src="{{url("storage/{$forms->Foto2} ")}}" widht=50 height=50 /> </td>
-            <td> <img src="{{url("storage/{$forms->Foto3} ")}}" widht=50 height=50 /> </td>
+            <td> <img src="{{url("storage/{$forms->Foto1} ")}}" widht=200 height=100 /> </td>
+            <td> <img src="{{url("storage/{$forms->Foto2} ")}}" widht=200 height=100 /> </td>
+            <td> <img src="{{url("storage/{$forms->Foto3} ")}}" widht=200 height=100 /> </td>
             <td><?php echo($a)?></td>
             <td><?php echo ($b)?></td>
             <td>{{$forms->preço}}</td>

@@ -1,5 +1,5 @@
-
-<table>
+<h1>RESERVAS</h1>
+<table width="100%" border="1px">
   <thread>
     <th>data</th>
     <th>hora inicial</th>
@@ -33,7 +33,7 @@
                  element2.innerHTML='';
               }
               if(element.innerText=="aprovado"){
-                 element.innerHTML='<a href="{{route('prefesta.index', $res->id)}}">Ir para o pre-festa</a>';
+                 element.innerHTML='<a href="{{route('prefesta.index', $res->id)}}">Ir para a festa</a>';
                  element2.innerHTML='';
 
               }

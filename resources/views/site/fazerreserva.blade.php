@@ -6,9 +6,9 @@
         @foreach($food as $food)
             <option  name="titulocomida" value={{$food->titulo}}> {{$food->titulo}}</option>
         @endforeach
-        <input name="numeroconvidados">
-        <input name="nomeaniversariante">
-        <input name="idadeaniversariante">
+        <input name="numeroconvidados" placeholder="número de convidados">
+        <input name="nomeaniversariante" placeholder="nome do aniversariante">
+        <input name="idadeaniversariante" placeholder="idade do aniversariante">
         <input type="hidden" value={{$usu->nome}} name="login">
         <button type="submit">Enviar</button>
    </select>

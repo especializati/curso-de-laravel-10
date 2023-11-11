@@ -1,5 +1,5 @@
-
-<table>
+<h1>RESERVAS</h1>
+<table width="100%" border="1px">
     <thread>
       <th>data</th>
       <th>hora inicial</th>

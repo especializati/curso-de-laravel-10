@@ -3,10 +3,15 @@
   <input type="hidden" value="food" name="food">
   <button type="submit"> Nova Comida</button>
 </form>
-<table>
+<table width=200 height=100 border="1px">
   <thread>
     <th>TITULO</th>
-    <th>fotos</th>
+    <th>Foto1</th>
+    <th>Foto2</th>
+    <th>Foto3</th>
+    <th>Preço</th>
+    <th>Lista de comidas</th>
+    <th>Lista de bebidas</th>
     
   </thread>
   <tbody>
@@ -16,12 +21,13 @@
             $b=$forms->lista_bebidas;?>
            <tr>
             <td>{{$forms->titulo}}</td>
-            <td> <img src="{{url("storage/{$forms->Foto1} ")}}" widht=50 height=50 /> </td>
-            <td> <img src="{{url("storage/{$forms->Foto2} ")}}" widht=50 height=50 /> </td>
-            <td> <img src="{{url("storage/{$forms->Foto3} ")}}" widht=50 height=50 /> </td>
+            <td> <img src="{{url("storage/{$forms->Foto1} ")}}" widht=200 height=100 /> </td>
+            <td> <img src="{{url("storage/{$forms->Foto2} ")}}" widht=200 height=100 /> </td>
+            <td> <img src="{{url("storage/{$forms->Foto3} ")}}" widht=200 height=100 /> </td>
+            <td>{{$forms->preço}}</td>
             <td><?php echo($a)?></td>
             <td><?php echo ($b)?></td>
-            <td>{{$forms->preço}}</td>
+            
             <td><a href="{{route('editfood.index',$forms->id)}}">Editar</a></td>
             <td><a href="{{route('deletefood.index',$forms->id)}}">Delete</a>
             </td>

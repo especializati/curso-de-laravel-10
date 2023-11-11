@@ -1,4 +1,5 @@
-<table>
+<h1>CONVIDADOS</h1>
+<table width="100%" border="1px">
     <thread>
       <th>nome</th>
       <th>CPF</th>

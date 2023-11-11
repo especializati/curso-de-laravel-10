@@ -1,5 +1,5 @@
 
-<table id="myTable">
+<table id="myTable" width="100%" border="1px">
     <thread>
       <th>data</th>
       <th>horário de início</th>

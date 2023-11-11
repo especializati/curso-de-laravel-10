@@ -3,7 +3,7 @@
     <input type="hidden" value="Agenda" name="Agenda">
     <button type="submit"> Nova Agenda</button>
 </form>
-<table>
+<table width="100%" border="1px">
   <thread>
     <th>Data</th>
     <th>Hora de início</th>

@@ -10,6 +10,6 @@
             <option  value="Ruim"> Ruim</option>
             <option  value="Muito Ruim">Muito Ruim</option>
     </select>
-    <textarea name="justifique" rows="5" cols="33"></textarea>
+    <textarea name="justifique" rows="5" cols="33" placeholder="justifique"></textarea>
     <button type="submit">Enviar</button>
 </form>
