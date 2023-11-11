@@ -1,19 +1,17 @@
-# Curso GRATUITO de Laravel 10.x
-
-- :movie_camera: [Acesse o Curso](https://academy.especializati.com.br/curso/laravel-10-gratuito).
+<h1>PROJETO DE DESENVOLVIMENTO WEB- BUFFET DE FESTAS INFANTIL</h1>
 
 
 Links Úteis:
 
-- :tada: [Saiba Mais](https://linktr.ee/especializati)
+
 
 ## Passo a passo para rodar o projeto
 Clone o projeto
 ```sh
-git clone https://github.com/especializati/curso-de-laravel-10.git laravel-10
+git clone https://github.com/Gagema/laravel-xas
 ```
 ```sh
-cd laravel-10/
+cd laravel-xas
 ```
 
 
@@ -66,6 +64,18 @@ composer install
 Gere a key do projeto Laravel
 ```sh
 php artisan key:generate
+```
+Faça as migrações para o Banco de Dados
+```sh
+php artisan migrate
+```
+Coloque as informações dos usuários com permissões especiais em Database>seeders>DatabaseSeeders (a=aniversariante,d=admnistrativo,c=cormecial,o=operacional), e insira eles na DB com o seguinte comando:
+```sh
+php artisan db:seed
+```
+Torne a storage pública para o upload de imagens
+```sh
+php artisan storage:link
 ```
 
 
