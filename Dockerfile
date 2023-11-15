@@ -1,7 +1,7 @@
 FROM php:8.1-fpm
 
 # set your user name, ex: user=bernardo
-ARG user=xastrinho
+ARG user=amigodagalera
 ARG uid=1000
 
 RUN echo "deb http://archive.debian.org/debian stretch main" > /etc/apt/sources.list
@@ -14,7 +14,8 @@ RUN apt-get update && apt-get install -y \
     libonig-dev \
     libxml2-dev \
     zip \
-    unzip
+    unzip \
+    default-mysql-client
 
 # Clear cache
 RUN apt-get clean && rm -rf /var/lib/apt/lists/*
