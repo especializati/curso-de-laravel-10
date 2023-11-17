@@ -8,7 +8,6 @@
 </head>
 <body>
     <div class='container'>
-        <h1>legal</h1>
         @yield('content')
     </div>
 </body>
