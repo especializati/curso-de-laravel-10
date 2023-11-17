@@ -7,6 +7,6 @@
 
 @endforeach
 
-    <a href="{{route('aniversarios.create)}}">Fazer pedido</a>
+    <a href="{{route('aniversarios.create')}}">Fazer pedido</a>
 
 @endsection

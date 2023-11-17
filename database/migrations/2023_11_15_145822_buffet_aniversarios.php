@@ -17,7 +17,9 @@ return new class extends Migration
             $table->boolean('estado');
             $table->dateTimeTz('data');
             $table->integer('n_convidados');
-            $table->longText('pedido');});
+            $table->longText('pedido');
+            $table->timestamps();
+        });
     }
 
     /**

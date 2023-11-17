@@ -37,7 +37,16 @@ class AniversarioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $created = $this->aniversario->create([
+            'nome_aniversariante' => $request->input('nome_aniversariante'),
+            'n_convidados' => $request->input('n_convidados'),
+            'pedido' => $request->input('pedido')
+        ]);
+
+        if($created){
+            return redirect()->back()->wiht('message','Succssecfuly Created');
+        }
+            return redirect()->back()->wiht('message','Error');
     }
 
     /**
