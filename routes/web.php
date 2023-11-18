@@ -9,28 +9,31 @@ use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AniversarioController;
 
-// ...
+use App\Http\Controllers\ListaDeFestasController;
 
-// Listar todos os aniversários
-//Route::get('/aniversarios', 'App\Http\Controllers\AniversarioController@index')->name('aniversarios.index');
+Route::get('/listadefestas', [ListaDeFestasController::class, 'index']);
+
+
+ //Listar todos os aniversários
+Route::get('/aniversarios', 'App\Http\Controllers\AniversarioController@index')->name('aniversarios.index');
 
 // Formulário para criar um novo aniversário
-//Route::get('/aniversarios/create', 'App\Http\Controllers\AniversarioController@create')->name('aniversarios.create');
+Route::get('/aniversarios/create', 'App\Http\Controllers\AniversarioController@create')->name('aniversarios.create');
 
 // Salvar um novo aniversário
-//Route::post('/aniversarios', 'App\Http\Controllers\AniversarioController@store')->name('aniversarios.store');
+Route::post('/aniversarios', 'App\Http\Controllers\AniversarioController@store')->name('aniversarios.store');
 
 // Mostrar detalhes de um aniversário
-//Route::get('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioController@show')->name('aniversarios.show');
+Route::get('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioController@show')->name('aniversarios.show');
 
 // Formulário para editar um aniversário
-//Route::get('/aniversarios/{aniversario}/edit', 'App\Http\Controllers\AniversarioController@edit')->name('aniversarios.edit');
+Route::get('/aniversarios/{aniversario}/edit', 'App\Http\Controllers\AniversarioController@edit')->name('aniversarios.edit');
 
 // Atualizar um aniversário
-//Route::put('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioController@update')->name('aniversarios.update');
+Route::put('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioController@update')->name('aniversarios.update');
 
 // Excluir um aniversário
-//Route::delete('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioController@destroy')->name('aniversarios.destroy');
+Route::delete('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioController@destroy')->name('aniversarios.destroy');
 
 // ...
 
