@@ -116,5 +116,20 @@ class ReservaController extends Controller
 
         return redirect()->back()->with('success', 'Pacote trocado com sucesso!');
     }
+    
+    public function listaRecomendacoes($reservaId)
+    {
+        $reserva = Reserva::findOrFail($reservaId);
+        $recomendacoes = Recomendacao::all(); // Supondo que você tenha um modelo Recomendacao
+
+        return view('reservas.lista_recomendacoes', compact('reserva', 'recomendacoes'));
+    }
+
+    public function cancelarReserva($reservaId)
+    {
+        // Implemente a lógica para cancelar a reserva (excluir do banco de dados, enviar notificações, etc.)
+
+        return redirect('/')->with('success', 'Reserva cancelada com sucesso!');
+    }
 }
 

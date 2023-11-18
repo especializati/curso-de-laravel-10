@@ -26,6 +26,21 @@ use App\Http\Controllers\ReservaController;
 //Route::get('/reserva/{reservaId}/lista-convidados', [ReservaController::class, 'listaConvidados']);
 //Route::delete('/reserva/{reservaId}/remover-convidado/{convidadoId}', [ReservaController::class, 'removerConvidado']);
 
+//Visualização do pacote de comidas escolhido.
+//Route::get('/reserva/{reservaId}/visualizar-pacote', [ReservaController::class, 'visualizarPacote']);
+//Route::post('/reserva/{reservaId}/trocar-pacote', [ReservaController::class, 'trocarPacote']);
+
+//Lista de Recomendações e o Cancelamento de Reserva
+//Route::get('/reserva/{reservaId}/recomendacoes', [ReservaController::class, 'listaRecomendacoes']);
+//Route::delete('/reserva/{reservaId}/cancelar', [ReservaController::class, 'cancelarReserva']);
+
+
+
+
+
+
+
+
 
 
 // Salvar um novo aniversário
