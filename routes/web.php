@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\{ReplySupportController, SupportController};
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AniversarioController;
@@ -35,13 +36,16 @@ use App\Http\Controllers\ReservaController;
 //Route::delete('/reserva/{reservaId}/cancelar', [ReservaController::class, 'cancelarReserva']);
 
 
-//Lista de Satisfação pós Festa
+//*Aniversariante* Lista de Satisfação pós Festa
 //Route::get('/reserva/{reservaId}/pesquisa-satisfacao', [ReservaController::class, 'formularioPesquisa']);
 //Route::post('/reserva/{reservaId}/pesquisa-satisfacao', [ReservaController::class, 'submeterPesquisa']);
 
+//*Administrativo* Lista de Satisfação
+//Route::get('/admin/resultado-pesquisas', [AdminController::class, 'resultadoPesquisas']);
 
-
-
+//*Administrativo* Controle de cancelamento de reserva
+//Route::delete('/admin/reserva/{reservaId}/cancelar', [AdminController::class, 'cancelarReserva']);
+//    ->middleware('admin'); // Substitua 'admin' pelo nome do seu middleware, se diferente
 
 
 
