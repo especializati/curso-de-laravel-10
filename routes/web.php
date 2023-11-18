@@ -7,14 +7,18 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AniversarioController;
+use App\Http\Controllers\ReservaController;
 
 // ...
 
-// Listar todos os aniversários
-//Route::get('/aniversarios', 'App\Http\Controllers\AniversarioController@index')->name('aniversarios.index');
 
-// Formulário para criar um novo aniversário
-//Route::get('/aniversarios/create', 'App\Http\Controllers\AniversarioController@create')->name('aniversarios.create');
+
+// *Comercial* Lista de Requests de aniversários/Status
+//Route::get('/reservas', [ReservaController::class, 'listarReservas']);
+
+// Formulário para criar um novo aniversário OBS: Substituí o Controller de Aniversário por de Reserva por questões práticas
+//Route::get('/reservar', 'ReservaController@formulario');
+//Route::post('/reservar', 'ReservaController@solicitarReserva');
 
 // Salvar um novo aniversário
 //Route::post('/aniversarios', 'App\Http\Controllers\AniversarioController@store')->name('aniversarios.store');
