@@ -20,14 +20,21 @@ use App\Http\Controllers\ReservaController;
 //Route::get('/reservar', 'ReservaController@formulario');
 //Route::post('/reservar', 'ReservaController@solicitarReserva');
 
+// Formulário para editar um aniversário
+//Route::get('/reserva/{reservaId}/confirmar-presenca', [ReservaController::class, 'formularioConfirmacao']);
+//Route::post('/reserva/{reservaId}/confirmar-presenca', [ReservaController::class, 'confirmarPresenca']);
+//Route::get('/reserva/{reservaId}/lista-convidados', [ReservaController::class, 'listaConvidados']);
+//Route::delete('/reserva/{reservaId}/remover-convidado/{convidadoId}', [ReservaController::class, 'removerConvidado']);
+
+
+
 // Salvar um novo aniversário
 //Route::post('/aniversarios', 'App\Http\Controllers\AniversarioController@store')->name('aniversarios.store');
 
 // Mostrar detalhes de um aniversário
 //Route::get('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioController@show')->name('aniversarios.show');
 
-// Formulário para editar um aniversário
-//Route::get('/aniversarios/{aniversario}/edit', 'App\Http\Controllers\AniversarioController@edit')->name('aniversarios.edit');
+
 
 // Atualizar um aniversário
 //Route::put('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioController@update')->name('aniversarios.update');
