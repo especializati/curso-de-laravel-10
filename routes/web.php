@@ -35,7 +35,9 @@ use App\Http\Controllers\ReservaController;
 //Route::delete('/reserva/{reservaId}/cancelar', [ReservaController::class, 'cancelarReserva']);
 
 
-
+//Lista de Satisfação pós Festa
+//Route::get('/reserva/{reservaId}/pesquisa-satisfacao', [ReservaController::class, 'formularioPesquisa']);
+//Route::post('/reserva/{reservaId}/pesquisa-satisfacao', [ReservaController::class, 'submeterPesquisa']);
 
 
 

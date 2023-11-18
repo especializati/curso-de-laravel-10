@@ -3,6 +3,9 @@
 
 use App\Models\Reserva;
 use App\Models\Convidado;
+use App\Models\PacoteComida;
+use App\Models\Recomendacao;
+use App\Models\PesquisaSatisfacao;
 
 class ReservaController extends Controller
 {
@@ -130,6 +133,37 @@ class ReservaController extends Controller
         // Implemente a lógica para cancelar a reserva (excluir do banco de dados, enviar notificações, etc.)
 
         return redirect('/')->with('success', 'Reserva cancelada com sucesso!');
+    }
+    
+    public function formularioPesquisa($reservaId)
+    {
+        $reserva = Reserva::findOrFail($reservaId);
+
+        return view('reservas.formulario_pesquisa', compact('reserva'));
+    }
+
+    public function submeterPesquisa(Request $request, $reservaId)
+    {
+        // Validar os dados do formulário
+        $request->validate([
+            'pergunta_1' => 'required',
+            'pergunta_2' => 'required',
+            'pergunta_dissertativa' => 'required',
+        ]);
+
+        $reserva = Reserva::findOrFail($reservaId);
+
+        // Salvar as respostas no banco de dados
+        $pesquisa = new PesquisaSatisfacao([
+            'reserva_id' => $reserva->id,
+            'pergunta_1' => $request->input('pergunta_1'),
+            'pergunta_2' => $request->input('pergunta_2'),
+            'pergunta_dissertativa' => $request->input('pergunta_dissertativa'),
+        ]);
+
+        $pesquisa->save();
+
+        return redirect()->back()->with('success', 'Pesquisa de satisfação enviada com sucesso!');
     }
 }
 
