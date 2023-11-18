@@ -16,6 +16,8 @@ class Aniversario extends Model
     protected $fillable=[
         'nome_aniversariante',
         'data',
+        'idade_aniversariante',
+        'id_festa',
         'n_convidados',
         'pedido',
     ];

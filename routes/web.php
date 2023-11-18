@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AniversarioController;
 
@@ -34,13 +35,12 @@ use App\Http\Controllers\AniversarioController;
 // ...
 
 Route::resource('aniversarios', AniversarioController::class);
-
-
-
+Route::resource('users', UserController::class);
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 
-Route::post('/dashboard', function () {
+
+Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -49,7 +49,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
     Route::post('/profile/destroy', [ProfileController::class, 'destroy'])->name('profile.destroy');
     
-    Route::get('/login/custom', [LoginController::class, 'auth'])->name('login.custom');
+    Route::post('/login/custom', [LoginController::class, 'auth'])->name('login.custom');
 
     Route::post('/supports/{id}/replies', [ReplySupportController::class, 'store'])->name('replies.store');
     Route::delete('/supports/{id}/replies/{reply}', [ReplySupportController::class, 'destroy'])->name('replies.destroy');

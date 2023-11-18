@@ -3,7 +3,10 @@
 @section('content')
 
 @foreach($aniversarios as $aniversario)
-    <li>{{$aniversarios->nome_aniversariante}}</li>
+    <li>{{$aniversario->nome_aniversariante}}
+        |Idade:{{$aniversario->idade_aniversariante}}
+        |Convidados:{{$aniversario->n_convidados}}
+        |Pedido:{{$aniversario->pedido}}</li>
 
 @endforeach
 

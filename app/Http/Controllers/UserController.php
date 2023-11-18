@@ -3,25 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Aniversario;
+use App\Models\User;
+use Illuminate\Validation\Rules;
 
-class AniversarioController extends Controller
+class UserController extends Controller
 {
-    public readonly Aniversario $aniversario;
+    public readonly User $user;
 
     public function __construct(){
-        $this->aniversario = New Aniversario;
+        $this->user = New User;
     }
-    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $aniversarios = $this->aniversario->all();
-
-        return view('aniversarios',['aniversarios' => $aniversarios]);
-
+        //
     }
 
     /**
@@ -29,7 +26,7 @@ class AniversarioController extends Controller
      */
     public function create()
     {
-        return view('aniversarios_create');
+        //
     }
 
     /**
@@ -37,18 +34,23 @@ class AniversarioController extends Controller
      */
     public function store(Request $request)
     {
-        $created = $this->aniversario->create([
-            'idade_aniversariante' => $request->input('idade_aniversariante'),
-            'nome_aniversariante' => $request->input('nome_aniversariante'),
-            'n_convidados' => $request->input('n_convidados'),
-            'pedido' => $request->input('pedido'),
-            'id_festa' => $request->input('id_festa'),
-            'data' => $request->input('data'),
+        $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'acesso' => ['required', 'string', 'max:1'],
+        ]);
+
+        $created = $this->user->create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => password_hash($request->input('password'), PASSWORD_DEFAULT),
+            'acesso' => $request->input('acesso'),
 
         ]);
 
         if($created){
-            return redirect()->route('aniversarios.index');
+            return redirect()->route('home');
         }
             return redirect()->back()->with('message','Error');
     }
