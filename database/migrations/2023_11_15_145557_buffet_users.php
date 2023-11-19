@@ -30,4 +30,11 @@ return new class extends Migration
     {
         Schema::DropIfExists('users');
     }
+    Schema::create('users', function (Blueprint $table) {
+        // ... outras colunas padrão
+    
+        $table->boolean('is_admin')->default(false);
+        $table->boolean('is_aniversariante')->default(false);
+    });
+    
 };

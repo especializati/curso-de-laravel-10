@@ -3,12 +3,26 @@
 @section('content')
 
 @if (session()->has('message'))
-{{session()->get('message')}}
-    
+    {{ session()->get('message') }}
 @endif
-@if(auth()->user())
-    {{auth()->user()->name}}
+
+@if (auth()->check())
+    {{ auth()->user()->name }}
+
+    @if (auth()->user()->isAniversariante())
+        <!-- Conteúdo específico para aniversariante -->
+        <form action="{{ route('aniversarios.store') }}" method='POST'>
+            @csrf
+            <!-- ... restante do formulário para aniversariante ... -->
+        </form>
+    @elseif (auth()->user()->isAdmin())
+        <!-- Conteúdo específico para administrador -->
+        <!-- ... adicione aqui o conteúdo específico para administrador ... -->
+    @endif
+
 @endif
+
+
 
 <form action="{{route('aniversarios.store')}}" method='POST'>
     @csrf
