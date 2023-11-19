@@ -7,21 +7,19 @@ use App\Models\Aniversario;
 
 class AniversarioController extends Controller
 {
-    public readonly Aniversario $aniversario;
+    protected $aniversario;
 
-    public function __construct(){
-        $this->aniversario = New Aniversario;
+    public function __construct(Aniversario $aniversario) {
+        $this->aniversario = $aniversario;
     }
-    
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         $aniversarios = $this->aniversario->all();
-
-        return view('aniversarios',['aniversarios' => $aniversarios]);
-
+        return view('aniversarios', ['aniversarios' => $aniversarios]);
     }
 
     /**
@@ -51,6 +49,15 @@ class AniversarioController extends Controller
             return redirect()->route('aniversarios.index');
         }
             return redirect()->back()->with('message','Error');
+        // Implement the logic to store a new Aniversario instance
+        $data = $request->validate([
+            // Define validation rules for your request data
+        ]);
+
+        $aniversario = $this->aniversario->create($data);
+
+        // Redirect to the index or show page with a success message
+        return redirect()->route('aniversarios.index')->with('success', 'Aniversario created successfully');
     }
 
     /**
@@ -58,7 +65,9 @@ class AniversarioController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Implement the logic to show a specific Aniversario instance
+        $aniversario = $this->aniversario->findOrFail($id);
+        return view('aniversario_show', ['aniversario' => $aniversario]);
     }
 
     /**
@@ -66,7 +75,9 @@ class AniversarioController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // Implement the logic to show the edit form for a specific Aniversario instance
+        $aniversario = $this->aniversario->findOrFail($id);
+        return view('aniversario_edit', ['aniversario' => $aniversario]);
     }
 
     /**
@@ -74,7 +85,16 @@ class AniversarioController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        // Implement the logic to update a specific Aniversario instance
+        $data = $request->validate([
+            // Define validation rules for your request data
+        ]);
+
+        $aniversario = $this->aniversario->findOrFail($id);
+        $aniversario->update($data);
+
+        // Redirect to the index or show page with a success message
+        return redirect()->route('aniversarios.index')->with('success', 'Aniversario updated successfully');
     }
 
     /**
@@ -82,6 +102,11 @@ class AniversarioController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // Implement the logic to delete a specific Aniversario instance
+        $aniversario = $this->aniversario->findOrFail($id);
+        $aniversario->delete();
+
+        // Redirect to the index page with a success message
+        return redirect()->route('aniversarios.index')->with('success', 'Aniversario deleted successfully');
     }
 }
