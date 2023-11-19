@@ -1,14 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>master</title>
+    <title>@yield('title') - Eclair Buffet</title>
+    <style>
+     <link rel="stylesheet" href="/css/styles.css">
+
+    </style>
 </head>
 <body>
-    <div class='container'>
-        @yield('content')
+
+<!-- Cabeçalho -->
+<header>
+    <!-- Conteúdo do cabeçalho -->
+    <div class="header-content">
+        <!-- Título do Buffet -->
+        <h1>Eclair Buffet</h1>
     </div>
+</header>
+
+<!-- Container principal -->
+<div class='container'>
+    <!-- Conteúdo dinâmico da página -->
+    @yield('content')
+</div>
+
 </body>
 </html>
