@@ -50,4 +50,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Support::class);
     }
+    protected $fillable = [
+        // ... outras colunas padrão
+        'is_admin',
+        'is_aniversariante',
+    ];
+    
 }
