@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AniversarioController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\OperacionalController;
 
 use App\Http\Controllers\ListaDeFestasController;
 
@@ -38,6 +39,19 @@ Route::put('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioContr
 Route::delete('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioController@destroy')->name('aniversarios.destroy');
 
 // ...
+
+//[Operacional] Entrada na festa:
+//Route::get('/operacional/entrada-festa', [OperacionalController::class, 'entradaFesta']);
+
+//[Operacional] Lista de próximas festa
+//Route::get('/operacional/proximas-festas', [OperacionalController::class, 'proximasFestas']);
+
+//ADMIN Possibilidade de Cancelar as Festas
+//Route::delete('/admin/reserva/{reservaId}/cancelar', [AdminController::class, 'cancelarReserva']);
+
+
+
+
 
 Route::resource('aniversarios', AniversarioController::class);
 Route::resource('users', UserController::class);
