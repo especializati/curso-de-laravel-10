@@ -28,9 +28,10 @@
         </div>
     </section>
 
-    <!-- Botão para o Sistema de Login -->
-    <section class="login-button-section">
-        <a href="{{ route('login.custom') }}" class="btn-login">Acesse nosso Sistema</a>
+    <!-- Botões para o Sistema de Login e Registro -->
+    <section class="login-buttons-section">
+        <a href="{{ route('login') }}" class="btn-login">Login</a>
+        <a href="{{ route('register') }}" class="btn-register">Register</a>
     </section>
 @endsection
 
@@ -84,5 +85,18 @@
         border-radius: 5px;
         font-weight: bold;
         margin-top: 20px;
+    }
+
+    /* Botão de Register */
+    .btn-register {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #28a745; /* Cor de fundo do botão Register */
+        color: #ffffff; /* Cor do texto do botão Register */
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+        margin-top: 20px;
+        margin-left: 10px; /* Espaçamento entre os botões */
     }
 </style>
