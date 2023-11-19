@@ -41,6 +41,9 @@ Route::resource('users', UserController::class);
 Route::get('/', [HomeController::class,'index'])->name('home');
 
 Route::post('login', [AuthenticatedSessionController::class, 'store']);
+Route::get('login', [AuthenticatedSessionController::class, 'create'])
+->name('login');
+
 
 
 Route::get('/dashboard', function () {
