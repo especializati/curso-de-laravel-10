@@ -6,6 +6,9 @@
 {{session()->get('message')}}
     
 @endif
+@if(auth()->user())
+    {{auth()->user()->name}}
+@endif
 
 <form action="{{route('aniversarios.store')}}" method='POST'>
     @csrf
@@ -25,10 +28,7 @@
         <label for="pedido">Pedido</label>
         <input type="text" name='pedido'>
     </li>
-    <li>
-        <label for="id_festa">Id</label>
-        <input type="number" name='id_festa'>
-    </li>
+    <input type="hidden" name="id_festa" value="{{auth()->user()->id}}">
     <li>
         <label for="data">Data</label>
         <input type="date" name='data'>

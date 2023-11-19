@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('aniversarios', function(Blueprint $table){
-            $table->ForeignId('id_festa')->default(0);
+            $table->ForeignUuid('id_festa')->default(0);
             $table->string('nome_aniversariante');
             $table->boolean('estado')->default(false);
             $table->dateTimeTz('data');
