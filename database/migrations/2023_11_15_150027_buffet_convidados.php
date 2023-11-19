@@ -15,7 +15,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('cpf');
             $table->integer('idade');
-            $table->ForeignId('id_festa');
+            $table->ForeignUuId('id_festa');
         });
     }
 

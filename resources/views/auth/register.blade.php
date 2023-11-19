@@ -40,7 +40,11 @@
         </div>
         <div>
             <x-input-label for="acesso" :value="__('Acesso')" />
-            <x-text-input id="acesso" class="block mt-1 w-full" type="text" name="acesso" :value="old('acesso')" required autofocus autocomplete="acesso" />
+            <select id="acesso" name="acesso">
+                <option value="A">A</option>
+                <option value="O">O</option>
+                <option value="C">C</option>
+            </select>
             <x-input-error :messages="$errors->get('acesso')" class="mt-2" />
         </div>
 
