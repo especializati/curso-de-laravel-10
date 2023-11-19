@@ -35,6 +35,20 @@ class AniversarioController extends Controller
      */
     public function store(Request $request)
     {
+        $created = $this->aniversario->create([
+            'idade_aniversariante' => $request->input('idade_aniversariante'),
+            'nome_aniversariante' => $request->input('nome_aniversariante'),
+            'n_convidados' => $request->input('n_convidados'),
+            'pedido' => $request->input('pedido'),
+            'id_festa' => $request->input('id_festa'),
+            'data' => $request->input('data'),
+
+        ]);
+
+        if($created){
+            return redirect()->route('aniversarios.index');
+        }
+            return redirect()->back()->with('message','Error');
         // Implement the logic to store a new Aniversario instance
         $data = $request->validate([
             // Define validation rules for your request data

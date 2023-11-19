@@ -15,6 +15,12 @@ use Illuminate\View\View;
 
 class RegisteredUserController extends Controller
 {
+
+    public readonly User $user;
+
+    function __construct(){
+        $this->user = new User();
+    }
     /**
      * Display the registration view.
      */
@@ -34,13 +40,18 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'acesso' => ['required', 'string', 'max:1'],
         ]);
 
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
+            'acesso' => $request->acesso
         ]);
+
+        var_dump($user);
+        die();
 
         event(new Registered($user));
 
