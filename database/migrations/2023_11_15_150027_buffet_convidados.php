@@ -16,6 +16,8 @@ return new class extends Migration
             $table->string('cpf');
             $table->integer('idade');
             $table->ForeignUuId('id_festa');
+            $table->Uuid('id');
+            $table->boolean('presenca')->default(false);
         });
     }
 

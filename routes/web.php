@@ -9,37 +9,13 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AniversarioController;
+use App\Http\Controllers\ConvidadosController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\OperacionalController;
 
 use App\Http\Controllers\ListaDeFestasController;
 
 Route::get('/listadefestas', [ListaDeFestasController::class, 'index']);
-
-
- //Listar todos os aniversários
-Route::get('/aniversarios', 'App\Http\Controllers\AniversarioController@index')->name('aniversarios.index');
-
-// Formulário para criar um novo aniversário
-Route::get('/aniversarios/create', 'App\Http\Controllers\AniversarioController@create')->name('aniversarios.create');
-
-// Salvar um novo aniversário
-Route::post('/aniversarios', 'App\Http\Controllers\AniversarioController@store')->name('aniversarios.store');
-
-// Mostrar detalhes de um aniversário
-Route::get('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioController@show')->name('aniversarios.show');
-
-// Formulário para editar um aniversário
-Route::get('/aniversarios/{aniversario}/edit', 'App\Http\Controllers\AniversarioController@edit')->name('aniversarios.edit');
-
-// Atualizar um aniversário
-Route::put('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioController@update')->name('aniversarios.update');
-
-// Excluir um aniversário
-Route::delete('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioController@destroy')->name('aniversarios.destroy');
-
-// ...
-
 //[Operacional] Entrada na festa:
 //Route::get('/operacional/entrada-festa', [OperacionalController::class, 'entradaFesta']);
 
@@ -55,12 +31,15 @@ Route::delete('/aniversarios/{aniversario}', 'App\Http\Controllers\AniversarioCo
 
 Route::resource('aniversarios', AniversarioController::class);
 Route::resource('users', UserController::class);
+Route::resource('convidados', ConvidadosController::class);
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 
 Route::post('login', [AuthenticatedSessionController::class, 'store']);
 Route::get('login', [AuthenticatedSessionController::class, 'create'])
 ->name('login');
+Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
+                ->name('logout');
 
 
 

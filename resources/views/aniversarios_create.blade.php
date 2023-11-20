@@ -8,18 +8,6 @@
 
 @if (auth()->check())
     {{ auth()->user()->name }}
-
-    @if (auth()->user()->isAniversariante())
-        <!-- Conteúdo específico para aniversariante -->
-        <form action="{{ route('aniversarios.store') }}" method='POST'>
-            @csrf
-            <!-- ... restante do formulário para aniversariante ... -->
-        </form>
-    @elseif (auth()->user()->isAdmin())
-        <!-- Conteúdo específico para administrador -->
-        <!-- ... adicione aqui o conteúdo específico para administrador ... -->
-    @endif
-
 @endif
 
 
@@ -40,7 +28,7 @@
     </li>
     <li>
         <label for="pedido">Pedido</label>
-        <input type="text" name='pedido'>
+        <textarea name="editor" id="editor"></textarea>
     </li>
     <input type="hidden" name="id_festa" value="{{auth()->user()->id}}">
     <li>

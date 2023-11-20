@@ -39,7 +39,7 @@ class AniversarioController extends Controller
             'idade_aniversariante' => $request->input('idade_aniversariante'),
             'nome_aniversariante' => $request->input('nome_aniversariante'),
             'n_convidados' => $request->input('n_convidados'),
-            'pedido' => $request->input('pedido'),
+            'pedido' => $request->input('editor'),
             'id_festa' => $request->input('id_festa'),
             'data' => $request->input('data'),
 
@@ -49,15 +49,6 @@ class AniversarioController extends Controller
             return redirect()->route('aniversarios.index');
         }
             return redirect()->back()->with('message','Error');
-        // Implement the logic to store a new Aniversario instance
-        $data = $request->validate([
-            // Define validation rules for your request data
-        ]);
-
-        $aniversario = $this->aniversario->create($data);
-
-        // Redirect to the index or show page with a success message
-        return redirect()->route('aniversarios.index')->with('success', 'Aniversario created successfully');
     }
 
     /**
@@ -86,15 +77,12 @@ class AniversarioController extends Controller
     public function update(Request $request, string $id)
     {
         // Implement the logic to update a specific Aniversario instance
-        $data = $request->validate([
-            // Define validation rules for your request data
-        ]);
 
-        $aniversario = $this->aniversario->findOrFail($id);
+        $updated = $this->aniversario->where('id_festa',$id)->update($request);
         $aniversario->update($data);
 
         // Redirect to the index or show page with a success message
-        return redirect()->route('aniversarios.index')->with('success', 'Aniversario updated successfully');
+        return redirect()->back();
     }
 
     /**

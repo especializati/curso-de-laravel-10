@@ -1,7 +1,7 @@
 @extends('layouts.app') {{-- Supondo que você tenha um layout base --}}
 
 @section('content')
-    @if (auth()->check() && (auth()->user()->role === 'administrativo' || auth()->user()->role === 'comercial'))
+    @if (auth()->check() && (auth()->user()->acesso === 'administrativo' || auth()->user()->acesso === 'comercial'))
         <h1>Visualização e Troca de Pacote para a Reserva #{{ $reserva->id }}</h1>
 
         <p>Pacote Atual: {{ $pacoteAtual->nome }} - R$ {{ $pacoteAtual->valor }}</p>

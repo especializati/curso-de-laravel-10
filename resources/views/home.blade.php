@@ -28,11 +28,6 @@
         </div>
     </section>
 
-    <!-- Botões para o Sistema de Login e Registro -->
-    <section class="login-buttons-section">
-        <a href="{{ route('login') }}" class="btn-login">Login</a>
-        <a href="{{ route('register') }}" class="btn-register">Register</a>
-    </section>
 @endsection
 
 <style>

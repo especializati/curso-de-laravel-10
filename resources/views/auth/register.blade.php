@@ -42,8 +42,9 @@
             <x-input-label for="acesso" :value="__('Acesso')" />
             <select id="acesso" name="acesso">
                 <option value="A">A</option>
-                <option value="O">O</option>
+                <option value="B">B</option>
                 <option value="C">C</option>
+                <option value="O">O</option>
             </select>
             <x-input-error :messages="$errors->get('acesso')" class="mt-2" />
         </div>
