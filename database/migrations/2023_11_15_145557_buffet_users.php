@@ -17,9 +17,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->char('acesso',1);
+            $table->char('acesso', 1);
             $table->rememberToken();
             $table->timestamps();
+
+            // Adicionando outras colunas padrão
+            $table->boolean('is_admin')->default(false);
+            $table->boolean('is_aniversariante')->default(false);
         });
     }
 
@@ -28,13 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::DropIfExists('users');
+        Schema::dropIfExists('users');
     }
-    Schema::create('users', function (Blueprint $table) {
-        // ... outras colunas padrão
-    
-        $table->boolean('is_admin')->default(false);
-        $table->boolean('is_aniversariante')->default(false);
-    });
-    
 };
