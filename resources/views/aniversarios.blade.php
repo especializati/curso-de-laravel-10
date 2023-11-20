@@ -10,7 +10,11 @@
             |Pedido:{{$aniversario->pedido}}
             |Data:{{$aniversario->data}}
             |Estado:{{$aniversario->estado}}
-            |<form action="{{route('aniversarios.update',['aniversario' => $aniversario->id])}}" method="post"><input type="hidden" name="estado" value="{{!$aniversario->estado}}"><button type="submit">Confirmar</button></form></li>
+            |<form action="{{route('aniversarios.update',['aniversario' => $aniversario->id])}}" method="post">
+            <input type="hidden" name="estado" value="{{!$aniversario->estado}}">
+            <button type="submit">Confirmar</button>
+        </form>
+    </li>
     @endforeach
 
     <a href="{{route('aniversarios.create')}}">Fazer pedido</a>

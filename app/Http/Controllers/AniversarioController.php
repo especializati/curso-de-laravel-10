@@ -74,7 +74,7 @@ class AniversarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Aniversario $aniversario)
     {
         // Implement the logic to update a specific Aniversario instance
 

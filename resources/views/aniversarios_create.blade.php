@@ -3,42 +3,50 @@
 @section('content')
 
 @if (session()->has('message'))
-    {{ session()->get('message') }}
+    <div class="alert">{{ session()->get('message') }}</div>
 @endif
 
 @if (auth()->check())
-    {{ auth()->user()->name }}
+    <p>Olá, {{ auth()->user()->name }}!</p>
 @endif
 
-
-
-<form action="{{route('aniversarios.store')}}" method='POST'>
+<form action="{{ route('aniversarios.store') }}" method='POST' class="create-party-form">
     @csrf
-    <li>
-        <label for="nome_aniversariante">Nome Aniversariante</label>
-        <input type="text" name='nome_aniversariante'>
-    </li>
-    <li>
-        <label for="idade_aniversariante">Idade Aniversariante</label>
-        <input type="number" name='idade_aniversariante'>
-    </li>
-    <li>
+    <div class="form-group">
+        <label for="nome_aniversariante">Nome do Aniversariante</label>
+        <input type="text" name='nome_aniversariante' required>
+    </div>
+    <div class="form-group">
+        <label for="idade_aniversariante">Idade do Aniversariante</label>
+        <input type="number" name='idade_aniversariante' required>
+    </div>
+    <div class="form-group">
         <label for="n_convidados">Número de Convidados</label>
-        <input type="number" name='n_convidados'>
-    </li>
-    <li>
+        <input type="number" name='n_convidados' required>
+    </div>
+    <div class="form-group">
         <label for="pedido">Pedido</label>
-        <textarea name="editor" id="editor"></textarea>
-    </li>
-    <input type="hidden" name="id_festa" value="{{auth()->user()->id}}">
-    <li>
+        <textarea name="editor" id="editor" required></textarea>
+    </div>
+    <input type="hidden" name="id_festa" value="{{ auth()->user()->id }}">
+    <div class="form-group">
         <label for="data">Data</label>
-        <input type="date" name='data'>
-    </li>
+        <input type="date" name='data' required>
+    </div>
 
-    <button type="submit">Criar festa</button>
+    <!-- Adicione a imagem de comidas aqui -->
+    <div class="form-group">
+        <label for="comidas_img">Imagem de Comidas</label>
+        <img src="https://img.freepik.com/fotos-gratis/arranjo-de-comida-deliciosa-de-alto-angulo_23-2149617130.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1699142400&semt=ais" alt="Comidas" style="max-width: 100%;">
+    </div>
 
+    <!-- Adicione a imagem de bebidas aqui -->
+    <div class="form-group">
+        <label for="bebidas_img">Imagem de Bebidas</label>
+        <img src="https://casaefesta.com/wp-content/uploads/2021/06/bebidas-para-servir-festa-infantil.jpg" alt="Bebidas" style="max-width: 100%;">
+    </div>
+
+    <button type="submit" class="btn-create-party">Criar festa</button>
 </form>
 
-
-@endsection('content')
+@endsection

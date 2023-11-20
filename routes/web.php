@@ -23,7 +23,7 @@ Route::get('/listadefestas', [ListaDeFestasController::class, 'index']);
 //Route::get('/operacional/proximas-festas', [OperacionalController::class, 'proximasFestas']);
 
 //ADMIN Possibilidade de Cancelar as Festas
-//Route::delete('/admin/reserva/{reservaId}/cancelar', [AdminController::class, 'cancelarReserva']);
+Route::delete('/admin/reserva/{reservaId}/cancelar', [AdminController::class, 'cancelarReserva']);
 
 
 
