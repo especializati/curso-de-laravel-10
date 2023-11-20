@@ -1,0 +1,198 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+header {
+    background-color: #ffc107;
+    text-align: center;
+    padding: 30px 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #343a40;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.btn-login,
+.btn-register {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.btn-login {
+    background-color: #ffc107;
+    color: #343a40;
+}
+
+.btn-register {
+    background-color: #28a745;
+    color: #ffffff;
+}
+
+.navbar {
+    background-color: #343a40;
+    padding: 10px 0;
+}
+
+.navbar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.navbar-buttons a {
+    color: #ffffff;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+.navbar-buttons a:hover {
+    text-decoration: underline;
+}
+.create-party-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #343a40; /* Cor do texto das labels */
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.btn-create-party {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-top: 20px;
+    background-color: #ffc107; /* Cor de fundo do botão */
+    color: #343a40; /* Cor do texto do botão */
+    cursor: pointer;
+}
+
+.btn-create-party:hover {
+    background-color: #e0a800; /* Cor de fundo do botão ao passar o mouse */
+}
+
+.alert {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #28a745; /* Cor de fundo da mensagem de alerta */
+    color: #fff; /* Cor do texto da mensagem de alerta */
+    border-radius: 5px;
+}
+
+body {
+    background-color: #f8f9fa; /* Cor de fundo do corpo da página */
+    color: #343a40; /* Cor do texto padrão */
+}
+
+header {
+    background-color: #ffc107; /* Cor de fundo do cabeçalho */
+    text-align: center;
+    padding: 30px 0;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+    color: #343a40; 
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff; 
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+.guest-form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.alert {
+    background-color: #ffc107;
+    color: #343a40;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
