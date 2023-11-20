@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\SatisfacaoController;
 use App\Http\Controllers\Admin\{ReplySupportController, SupportController};
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
@@ -25,10 +25,10 @@ Route::get('/listadefestas', [ListaDeFestasController::class, 'index']);
 //ADMIN Possibilidade de Cancelar as Festas
 Route::delete('/admin/reserva/{reservaId}/cancelar', [AdminController::class, 'cancelarReserva']);
 
+//Rota da Pesquisa de Satisfação
+Route::get('/satisfacao/lista', [AniversarioController::class, 'lista'])->name('satisfacao.lista');
 
-
-
-
+Route::put('aniversarios/{aniversario}', 'AniversarioController@update')->name('aniversarios.update');
 Route::resource('aniversarios', AniversarioController::class);
 Route::resource('users', UserController::class);
 Route::resource('convidados', ConvidadosController::class);
@@ -40,6 +40,17 @@ Route::get('login', [AuthenticatedSessionController::class, 'create'])
 ->name('login');
 Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+
+
+Route::middleware(['auth'])->group(function () {
+    // ... outras rotas ...
+
+    Route::get('/aniversarios/confirmar/{aniversario}', [AniversarioController::class, 'confirmarAniversario'])
+        ->name('aniversarios.confirmar');
+
+    // ... outras rotas ...
+});
+
 
 
 

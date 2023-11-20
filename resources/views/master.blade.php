@@ -26,11 +26,13 @@
             <div class="navbar-buttons">
                 <a href="{{route('home')}}">Home</a>
                 @if(auth()->user()->acesso == 'A' || auth()->user()->acesso == 'C')
-                <a href="{{route('aniversarios.index')}}">Festas</a>
+                    <a href="{{route('aniversarios.index')}}">Festas</a>
                 @endif
                 @if(auth()->user()->acesso == 'B')
-                <a href="{{route('convidados.index')}}">Convidados</a>
-                <a href="{{route('aniversarios.create')}}">Fazer Solicitação</a>
+                    <a href="{{route('convidados.index')}}">Convidados</a>
+                    <a href="{{route('aniversarios.create')}}">Fazer Solicitação</a>
+                <!-- Adicione o botão de Lista de Satisfação -->
+                <a href="{{route('satisfacao.lista')}}">Lista de Satisfação</a>
                 @endif
             </div>
             <form method="POST" action="{{ route('logout') }}">

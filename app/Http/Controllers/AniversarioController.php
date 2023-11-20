@@ -9,7 +9,21 @@ class AniversarioController extends Controller
 {
     protected $aniversario;
 
-    public function __construct(Aniversario $aniversario) {
+    
+    public function confirmarAniversario(Aniversario $aniversario)
+    {
+        // Lógica para confirmar o aniversário (por exemplo, definir um campo 'confirmado' no modelo)
+        $aniversario->confirmado = true;
+        $aniversario->save();
+
+        return redirect()->route('aniversarios.index')->with('success', 'Aniversário confirmado com sucesso!');
+    }
+
+
+
+    
+    public function __construct(Aniversario $aniversario) 
+    {
         $this->aniversario = $aniversario;
     }
 
@@ -97,4 +111,28 @@ class AniversarioController extends Controller
         // Redirect to the index page with a success message
         return redirect()->route('aniversarios.index')->with('success', 'Aniversario deleted successfully');
     }
+
+
+
+    public function lista()
+    {
+        // Exemplo: Obtendo dados da reserva (ajuste conforme sua lógica)
+        $reserva = Reserva::find(1); // Substitua 1 pelo ID da reserva que você deseja exibir
+
+        // Lógica para obter dados da lista de satisfação, se necessário
+        $dadosSatisfacao = [
+            // Aqui você pode carregar os dados da lista de satisfação do seu modelo ou serviço
+            // Exemplo: $dadosSatisfacao = Satisfacao::all();
+        ];
+
+        // Passando a variável $reserva para a view
+        return view('pesquisa_satisfacao', compact('dadosSatisfacao', 'reserva'));
+    }
+
 }
+
+
+
+
+
+
