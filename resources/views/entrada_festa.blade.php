@@ -1,5 +1,3 @@
-<!-- resources/views/operacional/entrada_festa.blade.php -->
-
 @extends('layouts.app') {{-- Supondo que você tenha um layout base para a área operacional --}}
 
 @section('content')

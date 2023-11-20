@@ -1,11 +1,15 @@
-# Curso GRATUITO de Laravel 10.x
+Figma
+```sh
+https://www.figma.com/file/QyssjRL3ZdEZ6H8Rbp86Up/Site-Xastre?type=design&node-id=28-5&mode=design&t=mmvkN4Zi3BiVfUIn-0
+```
+Trello
+```sh
+https://trello.com/b/brOnt0oG/main
+```
 
-- :movie_camera: [Acesse o Curso](https://academy.especializati.com.br/curso/laravel-10-gratuito).
 
 
-Links Úteis:
 
-- :tada: [Saiba Mais](https://linktr.ee/especializati)
 
 ## Passo a passo para rodar o projeto
 Clone o projeto
@@ -67,6 +71,12 @@ Gere a key do projeto Laravel
 ```sh
 php artisan key:generate
 ```
+
+Use o Migrate
+```sh
+php artisan migrate
+```
+
 
 
 Acesse o projeto
