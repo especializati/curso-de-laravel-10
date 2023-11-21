@@ -43,7 +43,7 @@ class ConvidadosController extends Controller
         ]);
 
         if($created){
-            return redirect()->route('aconvidados.index');
+            return redirect()->route('convidados.index');
         }
             return redirect()->back()->with('message','Error');
     }
@@ -77,7 +77,7 @@ class ConvidadosController extends Controller
      */
     public function destroy(string $id)
     {
-        $this->convidado->where('id',$id)->delete();
+        $this->convidado->where('id', $id)->delete();
 
         return redirect()->back()->with('message', 'Removido');
     }

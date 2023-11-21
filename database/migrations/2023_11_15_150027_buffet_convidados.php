@@ -12,12 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('convidados', function(Blueprint $table){
+            $table->uuid('id')->primary();
             $table->string('name');
             $table->string('cpf');
             $table->integer('idade');
             $table->ForeignUuId('id_festa');
-            $table->Uuid('id');
             $table->boolean('presenca')->default(false);
+            $table->timestamps();
         });
     }
 

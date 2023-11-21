@@ -13,7 +13,7 @@ class Convidado extends Model
 
 
     protected $fillable=[
-        'noma',
+        'namea',
         'cpf',
         'idade',
         'id_festa',
