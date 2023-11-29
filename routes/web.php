@@ -12,8 +12,10 @@ use App\Http\Controllers\AniversarioController;
 use App\Http\Controllers\ConvidadosController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\OperacionalController;
-
 use App\Http\Controllers\ListaDeFestasController;
+use App\Http\Controllers\DisponibilidadeController;
+//Rota do CRUD de Disponibilidade de Horarios
+Route::resource('disponibilidades', DisponibilidadeController::class);
 
 Route::get('/listadefestas', [ListaDeFestasController::class, 'index']);
 //[Operacional] Entrada na festa:
