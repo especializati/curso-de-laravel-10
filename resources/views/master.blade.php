@@ -19,7 +19,7 @@
         <!-- Conteúdo da barra de navegação -->
         <div class="navbar-content">
             <!-- Título do Buffet -->
-            <h1>Eclair Buffet</h1>
+            <h3 class="title-navbar">Eclair Buffet</h3>
 
             <!-- Botões da Navbar -->
             @if(auth()->user())
