@@ -18,5 +18,27 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        DB::table('users')->insert([
+            'name' => 'admin',
+            'email' => 'admin'.'@admin.com',
+            'password' => '0987654321',
+            'acesso' => 'A'
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'operacional',
+            'email' => 'operacional'.'@operacional.com',
+            'password' => '0987654321',
+            'acesso' => 'O'
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'comercial',
+            'email' => 'comercial'.'@comercial.com',
+            'password' => '0987654321',
+            'acesso' => 'C'
+        ]);
+
     }
 }

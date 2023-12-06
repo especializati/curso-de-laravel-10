@@ -38,14 +38,12 @@ class UserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'acesso' => ['required', 'string', 'max:1'],
         ]);
 
         $created = $this->user->create([
             'name' => $request->input('name'),
             'email' => $request->input('email'),
             'password' => password_hash($request->input('password'), PASSWORD_DEFAULT),
-            'acesso' => $request->input('acesso'),
 
         ]);
 
