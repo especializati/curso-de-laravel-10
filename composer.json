@@ -12,7 +12,8 @@
         "laravel/jetstream": "^3.2",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
-        "livewire/livewire": "^3.2"
+        "livewire/livewire": "^3.2",
+        "ramsey/uuid": "^4.7"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.8",

@@ -14,6 +14,15 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\OperacionalController;
 use App\Http\Controllers\ListaDeFestasController;
 use App\Http\Controllers\DisponibilidadeController;
+use App\Http\Controllers\ReservaController;
+
+Route::get('/reserva/{reservaId}/visualizar-pacote', [ReservaController::class, 'visualizarPacote'])
+    ->name('reserva.visualizar');
+
+Route::post('/reserva/{reservaId}/trocar-pacote', [ReservaController::class, 'trocarPacote'])
+    ->name('reserva.trocarPacote');
+
+
 //Rota do CRUD de Disponibilidade de Horarios
 Route::resource('disponibilidades', DisponibilidadeController::class);
 

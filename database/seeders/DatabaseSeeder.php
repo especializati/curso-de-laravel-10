@@ -2,10 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use App\Models\User;
 
 class DatabaseSeeder extends Seeder
@@ -15,19 +14,33 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+        // Descomente a linha abaixo se estiver usando factories
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        DB::table('users')->insert([
+        // Criação do usuário administrador
+        User::create([
             'name' => 'admin',
-            'email' => 'admin@gmail.com',
+            'email' => 'admin@admin.com',
             'acesso' => 'A',
-            'password' => '0987654321',
+            'password' => bcrypt('0987654321'),
         ]);
 
+        // Criação do usuário operacional
+        User::create([
+            'name' => 'operacional',
+            'email' => 'operacional@operacional.com',
+            'acesso' => 'O',
+            'password' => bcrypt('0987654321'),
+        ]);
 
+        // Criação do usuário comercial
+        User::create([
+            'name' => 'comercial',
+            'email' => 'comercial@comercial.com',
+            'acesso' => 'C',
+            'password' => bcrypt('0987654321'),
+        ]);
+
+        // Adicione mais comandos de criação de registros, se necessário
     }
 }
