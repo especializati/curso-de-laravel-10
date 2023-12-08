@@ -15,28 +15,28 @@ use App\Http\Controllers\OperacionalController;
 use App\Http\Controllers\ListaDeFestasController;
 use App\Http\Controllers\DisponibilidadeController;
 use App\Http\Controllers\ReservaController;
+// web.php
 
-Route::get('/reserva/{reservaId}/visualizar-pacote', [ReservaController::class, 'visualizarPacote'])
-    ->name('reserva.visualizar');
+use App\Http\Controllers\PacoteController;
 
-Route::post('/reserva/{reservaId}/trocar-pacote', [ReservaController::class, 'trocarPacote'])
-    ->name('reserva.trocarPacote');
+// Rota para exibir a visualização dos pacotes
+Route::get('/visualizar_pacotes', [PacoteController::class, 'visualizarPacotes'])->name('visualizar_pacotes');
 
+// Rota para exibir o formulário de edição de um pacote específico
+Route::get('/editar_pacote/{id}', [PacoteController::class, 'editarPacote'])->name('editar_pacote');
 
-//Rota do CRUD de Disponibilidade de Horarios
+// Rota para processar a atualização do pacote no banco de dados
+Route::put('/atualizar_pacote/{id}', [PacoteController::class, 'atualizarPacote'])->name('atualizar_pacote');
+
+// Rota para excluir efetivamente o pacote do banco de dados
+Route::delete('/excluir_pacote/{id}', [PacoteController::class, 'excluirPacote'])->name('excluir_pacote');
+
+Route::view('/visualizar_pacote', 'visualizar_pacote')->name('visualizar_pacote');
 Route::resource('disponibilidades', DisponibilidadeController::class);
 
 Route::get('/listadefestas', [ListaDeFestasController::class, 'index']);
-//[Operacional] Entrada na festa:
-//Route::get('/operacional/entrada-festa', [OperacionalController::class, 'entradaFesta']);
 
-//[Operacional] Lista de próximas festa
-//Route::get('/operacional/proximas-festas', [OperacionalController::class, 'proximasFestas']);
-
-//ADMIN Possibilidade de Cancelar as Festas
 Route::delete('/admin/reserva/{reservaId}/cancelar', [AdminController::class, 'cancelarReserva']);
-
-//Rota da Pesquisa de Satisfação
 Route::get('/satisfacao/lista', [AniversarioController::class, 'lista'])->name('satisfacao.lista');
 
 Route::put('aniversarios/{aniversario}', 'AniversarioController@update')->name('aniversarios.update');
