@@ -58,26 +58,25 @@
     }
 </style>
 
+@foreach($pacotes as $pacote)
 <div class="pacote">
-    <h2>Pacote 1</h2>
+    <h2>Pacote {{$pacote->$id}}</h2>
     <div class="pacote-details">
         <div class="pacote-info">
             <ul>
                 <li>Bebidas:
                     <ul>
-                        <li>Cerveja</li>
-                        <li>Refrigerante</li>
+                        <li>{{$pacote->$bebidas}}</li>
                         <!-- Adicione outras bebidas conforme necessário -->
                     </ul>
                 </li>
                 <li>Comidas:
                     <ul>
-                        <li>jantar completo</li>
-                        <li>diversas sobremesas</li>
+                        <li>{{$pacote->$comidas}}</li>
                         <!-- Adicione outras comidas conforme necessário -->
                     </ul>
                 </li>
-                <li>Preço por pessoa: R$ 70,00</li>
+                <li>Preço por pessoa:{{$pacote->$preco_pessoa}}</li>
             </ul>
         </div>
         <div class="pacote-photos">
@@ -86,7 +85,7 @@
             <img src="{{ asset('https://img.freepik.com/fotos-gratis/arranjo-de-comida-deliciosa-de-alto-angulo_23-2149617130.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1699142400&semt=ais') }}" alt="Comidas">
         </div>
         <div>
-            <a href="{{ route('editar_pacote', ['id' => 1]) }}" class="btn btn-primary btn-editar">Editar</a>
+            <a href="{{ route('pacotes.edit', ['id' => $pacote->id]) }}" class="btn btn-primary btn-editar">Editar</a>
             <form action="{{ route('excluir_pacote',['id' => 1])}}" method="DELETE" class="deletar" >
                 @csrf
                 @method('DELETE')
@@ -95,43 +94,6 @@
         </div>
     </div>
 </div>
-
-<div class="pacote">
-    <h2>Pacote 2</h2>
-    <div class="pacote-details">
-        <div class="pacote-info">
-            <ul>
-                <li>Bebidas:
-                    <ul>
-                        <li>Suco de varios sabores</li>
-                        <li>Água</li>
-                        <!-- Adicione outras bebidas conforme necessário -->
-                    </ul>
-                </li>
-                <li>Comidas:
-                    <ul>
-                        <li>Comida japonesa</li>
-                        <!-- Adicione outras comidas conforme necessário -->
-                    </ul>
-                </li>
-                <li>Preço por pessoa: R$ 50,00</li>
-            </ul>
-        </div>
-        <div class="pacote-photos">
-            <!-- Espaço para 2 fotos do Pacote 2 -->
-            <img src="{{ asset('https://media.gazetadopovo.com.br/2023/01/11183609/WhatsApp-Image-2023-01-11-at-18.34.50-873x540.jpeg') }}" alt="Comidas">
-            <img src="{{ asset('https://casaefesta.com/wp-content/uploads/2021/06/bebidas-para-servir-festa-infantil.jpg') }}" alt="Bebidas">
-        </div>
-        <div>
-        <a href="{{ route('editar_pacote', ['id' => 1]) }}" class="btn btn-primary btn-editar">Editar</a>
-            <form action="{{ route('excluir_pacote',['id' => 1])}}" method="DELETE" class="deletar" >
-    @csrf
-    @method('DELETE')
-    <button type="submit" class="btn btn-danger">Excluir Pacote</button>
-</form>
-
-        </div>
-    </div>
-</div>
+@endforeach
 
 @endsection
