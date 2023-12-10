@@ -26,7 +26,11 @@
     </div>
     <div class="form-group">
         <label for="pedido">Pedido</label>
-        <textarea name="pedido" id="editor"></textarea>
+        <select name="pedido" id="pedido">
+            @foreach($pacotes as $pacote)
+                <option value="{{$pacote->id}}">{{$pacote->id}}</option>
+            @endforeach
+        </select>
     </div>
     <input type="hidden" name="id_festa" value="{{ auth()->user()->id }}">
     <div class="form-group">
@@ -34,15 +38,26 @@
         <input type="date" name='data' required>
     </div>
 
-    <!-- Adicione a imagem de comidas aqui -->
+    @foreach($pacotes as $pacote)
+
+    <h1>Pacote:{{$pacote->id}}</h1>
+
+    <div class="content-pacote">
+        {!! $pacote->comidas!!}
+    </div>
     <div class="form-group">
         <img src="https://img.freepik.com/fotos-gratis/arranjo-de-comida-deliciosa-de-alto-angulo_23-2149617130.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1699142400&semt=ais" alt="Comidas" style="max-width: 100%;">
     </div>
+    <div class="content-pacote">
+        {!! $pacote->bebidas!!}
+    </div>
 
-    <!-- Adicione a imagem de bebidas aqui -->
     <div class="form-group">
         <img src="https://casaefesta.com/wp-content/uploads/2021/06/bebidas-para-servir-festa-infantil.jpg" alt="Bebidas" style="max-width: 100%;">
     </div>
+        
+    @endforeach
+
 
     <button type="submit" id="submit-btn" class="btn-create-party">Criar festa</button>
 </form>

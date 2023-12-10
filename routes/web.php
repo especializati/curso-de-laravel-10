@@ -23,18 +23,6 @@ Route::post('/confirmar-chegada/{id}', [EntradaController::class, 'confirmarCheg
 
 
 
-// Rota para exibir a visualização dos pacotes
-Route::get('/visualizar_pacotes', [PacoteController::class, 'visualizarPacotes'])->name('visualizar_pacotes');
-
-// Rota para exibir o formulário de edição de um pacote específico
-Route::get('/editar_pacote/{id}', [PacoteController::class, 'editarPacote'])->name('editar_pacote');
-
-// Rota para processar a atualização do pacote no banco de dados
-Route::put('/atualizar_pacote/{id}', [PacoteController::class, 'atualizarPacote'])->name('atualizar_pacote');
-
-// Rota para excluir efetivamente o pacote do banco de dados
-Route::delete('/excluir_pacote/{id}', [PacoteController::class, 'excluirPacote'])->name('excluir_pacote');
-
 Route::resource('pacotes', PacoteController::class);
 Route::resource('disponibilidades', DisponibilidadeController::class);
 
@@ -44,6 +32,7 @@ Route::delete('/admin/reserva/{reservaId}/cancelar', [AdminController::class, 'c
 Route::get('/satisfacao/lista', [AniversarioController::class, 'lista'])->name('satisfacao.lista');
 
 Route::put('aniversarios/{aniversario}', 'AniversarioController@update')->name('aniversarios.update');
+Route::post('aniversarios/{aniversario}/confirmar',[AniversarioController::class, 'confirmarAniversario'])->name('aniversarios.confirmar');
 Route::resource('aniversarios', AniversarioController::class);
 Route::resource('users', UserController::class);
 Route::resource('convidados', ConvidadosController::class);

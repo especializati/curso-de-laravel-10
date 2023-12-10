@@ -8,9 +8,16 @@
             {{ $aniversario->nome_aniversariante }}
             | Idade: {{ $aniversario->idade_aniversariante }}
             | Convidados: {{ $aniversario->n_convidados }}
-            | Pedido: {{ $aniversario->pedido }}
+            | Pacote Pedido: {{ $aniversario->pedido }}
             | Data: {{ $aniversario->data }}
-            | 
+            | Confirmado: {{$aniversario->estado}}
+            @if(auth()->user()->acesso == 'A')
+            <form action="{{route('aniversarios.update', ['aniversario' => $aniversario->id])}}" method="POST">
+                @csrf    
+                <input type="hidden" name="_method" value="PUT">
+                <input type="hidden" name="estado" value="true"></form>
+                <button type="submit">Confirmar</button>
+            @endif
 
             
         </li>

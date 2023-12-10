@@ -51,7 +51,7 @@ class PacoteController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('pacotes_edit',['pacote' => $this->pacote->find($id)]);
     }
 
     /**
@@ -59,7 +59,15 @@ class PacoteController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $updated = $this->pacote->where('id',$id)->update($request->except(['_token','_method']));
+
+        if($updated){
+            return redirect()->route('pacotes.index');
+        }
+
+        else{
+            return redirect()->back()->with('msg','Error');
+        }
     }
 
     /**

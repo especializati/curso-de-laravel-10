@@ -18,7 +18,7 @@ return new class extends Migration
             $table->dateTimeTz('data');
             $table->integer('n_convidados');
             $table->integer('idade_aniversariante')->default(0);
-            $table->longText('pedido');
+            $table->integer('pedido');
             $table->timestamps();
         });
     }

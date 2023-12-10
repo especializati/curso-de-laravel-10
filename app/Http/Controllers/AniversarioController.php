@@ -4,27 +4,22 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Aniversario;
+use App\Models\Pacote;
 
 class AniversarioController extends Controller
 {
     protected $aniversario;
+    protected $pacote;
 
-    
-    public function confirmarAniversario(Aniversario $aniversario)
-    {
-        // Lógica para confirmar o aniversário (por exemplo, definir um campo 'confirmado' no modelo)
-        $aniversario->confirmado = true;
-        $aniversario->save();
 
-        return redirect()->route('aniversarios.index')->with('success', 'Aniversário confirmado com sucesso!');
-    }
 
 
 
     
-    public function __construct(Aniversario $aniversario) 
+    public function __construct(Aniversario $aniversario, Pacote $pacote) 
     {
         $this->aniversario = $aniversario;
+        $this->pacote = $pacote;
     }
 
     /**
@@ -41,7 +36,8 @@ class AniversarioController extends Controller
      */
     public function create()
     {
-        return view('aniversarios_create');
+        $pacotes = $this->pacote->all();
+        return view('aniversarios_create',['pacotes'=>$pacotes]);
     }
 
     /**
@@ -88,15 +84,17 @@ class AniversarioController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Aniversario $aniversario)
+    public function update(Request $request, string $id)
     {
-        // Implement the logic to update a specific Aniversario instance
+        $updated = $this->aniversario->where('id',$id)->update($request->except(['_token','_method']));
 
-        $updated = $this->aniversario->where('id_festa',$id)->update($request);
-        $aniversario->update($data);
+        if($updated){
+            return redirect()->route('aniversarios.index');
+        }
 
-        // Redirect to the index or show page with a success message
-        return redirect()->back();
+        else{
+            return redirect()->back()->with('msg','Error');
+        }
     }
 
     /**

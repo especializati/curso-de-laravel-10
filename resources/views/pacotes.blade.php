@@ -69,13 +69,13 @@
             <ul>
                 <li>Bebidas:
                     <ul>
-                        <li>{{$pacote->bebidas}}</li>
+                        <li>{!! $pacote->bebidas !!}</li>
                         <!-- Adicione outras bebidas conforme necessário -->
                     </ul>
                 </li>
                 <li>Comidas:
                     <ul>
-                        <li>{{$pacote->comidas}}</li>
+                        <li>{!!$pacote->comidas!!}</li>
                         <!-- Adicione outras comidas conforme necessário -->
                     </ul>
                 </li>
@@ -89,11 +89,6 @@
         </div>
         <div>
             <a href="{{ route('pacotes.edit', ['pacote' => $pacote->id]) }}" class="btn btn-primary btn-editar">Editar</a>
-            <form action="{{ route('pacotes.destroy',['pacote' => $pacote->id])}}" method="DELETE" class="deletar" >
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger btn-excluir">Excluir</button>
-            </form>
         </div>
     </div>
 </div>
