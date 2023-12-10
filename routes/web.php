@@ -22,20 +22,6 @@ Route::get('/entrada_festa', [EntradaController::class, 'entradaFesta'])->name('
 Route::post('/confirmar-chegada/{id}', [EntradaController::class, 'confirmarChegada'])->name('confirmar_chegada');
 
 
-<<<<<<< HEAD
-=======
-// Rota para exibir a visualização dos pacotes
-Route::get('/visualizar_pacotes', [PacoteController::class, 'visualizarPacotes'])->name('visualizar_pacotes');
-
-// Rota para exibir o formulário de edição de um pacote específico
-Route::get('/editar_pacote/{id}', [PacoteController::class, 'editarPacote'])->name('editar_pacote');
-
-// Rota para processar a atualização do pacote no banco de dados
-Route::put('/atualizar_pacote/{id}', [PacoteController::class, 'atualizarPacote'])->name('atualizar_pacote');
-
-// Rota para excluir efetivamente o pacote do banco de dados
-Route::delete('/excluir_pacote/{id}', [PacoteController::class, 'excluirPacote'])->name('excluir_pacote');
->>>>>>> 7cbac8c120a0fcd553834ab6f0da68dab8fe65fa
 
 Route::resource('pacotes', PacoteController::class);
 Route::resource('disponibilidades', DisponibilidadeController::class);

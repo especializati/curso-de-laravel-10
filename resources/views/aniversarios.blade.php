@@ -10,13 +10,19 @@
             | Convidados: {{ $aniversario->n_convidados }}
             | Pacote Pedido: {{ $aniversario->pedido }}
             | Data: {{ $aniversario->data }}
-            | Confirmado: {{$aniversario->estado}}
+            | Situação:   @if($aniversario->estado == false) Pendente @else Confirmado     @endif
             @if(auth()->user()->acesso == 'A')
-            <form action="{{route('aniversarios.update', ['aniversario' => $aniversario->id])}}" method="POST">
-                @csrf    
+            <form action="{{route('aniversarios.update', ['aniversario' => $aniversario->id_festa])}}" method="POST">
+                @csrf  
+                <button type="submit">Confirmar Festa</button>  
                 <input type="hidden" name="_method" value="PUT">
-                <input type="hidden" name="estado" value="true"></form>
-                <button type="submit">Confirmar</button>
+                <input type="hidden" name="estado" value='1'></form>
+            </form>
+            <form action="{{route('aniversarios.destroy', ['aniversario' => $aniversario->id_festa])}}" method="POST">
+                @csrf  
+                <button type="submit">Cancelar</button>  
+                <input type="hidden" name="_method" value="DELETE">
+            </form>
             @endif
 
             

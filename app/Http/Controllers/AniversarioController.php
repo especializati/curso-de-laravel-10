@@ -86,7 +86,7 @@ class AniversarioController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $updated = $this->aniversario->where('id',$id)->update($request->except(['_token','_method']));
+        $updated = $this->aniversario->where('id_festa',$id)->update($request->except(['_token','_method']));
 
         if($updated){
             return redirect()->route('aniversarios.index');
@@ -103,9 +103,7 @@ class AniversarioController extends Controller
     public function destroy(string $id)
     {
         // Implement the logic to delete a specific Aniversario instance
-        $aniversario = $this->aniversario->findOrFail($id);
-        $aniversario->delete();
-
+        $deleted = $this->aniversario->where('id_festa',$id)->delete();
         // Redirect to the index page with a success message
         return redirect()->route('aniversarios.index')->with('success', 'Aniversario deleted successfully');
     }
