@@ -28,11 +28,7 @@
                     @if(auth()->user()->acesso == 'A' || auth()->user()->acesso == 'C')
                         <a href="{{route('aniversarios.index')}}">Festas</a>
                          <!-- Adicione o botão de Pacotes -->
-<<<<<<< HEAD
-                         <a href="{{route('visualizar_pacote')}}">Visualizar Pacotes</a>
-=======
                          <a href="{{route('pacotes.index')}}">Visualizar Pacotes</a>
->>>>>>> cfef153601bf28163d1e43750e99284f011e4044
                     @endif
                     @if(auth()->user()->acesso == 'B')
                         <a href="{{route('convidados.index')}}">Convidados</a>
