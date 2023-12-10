@@ -28,7 +28,7 @@
                     @if(auth()->user()->acesso == 'A' || auth()->user()->acesso == 'C')
                         <a href="{{route('aniversarios.index')}}">Festas</a>
                          <!-- Adicione o botão de Pacotes -->
-                         <a href="{{route('visualizar_pacote')}}">Visualizar Pacotes</a>
+                         <a href="{{route('visualizar_pacote')}}">visualizar pacotes</a>
                     @endif
                     @if(auth()->user()->acesso == 'B')
                         <a href="{{route('convidados.index')}}">Convidados</a>
@@ -38,6 +38,9 @@
                     @endif
                     @if(auth()->user()->acesso == 'O')
                         <a href="{{route('entrada_festa')}}">Entrada Festa</a>
+                    @endif
+                    @if(auth()->user()->acesso == 'O')
+                        <a href="{{ route('proximas_festas') }}">Próximas Festas</a>
                     @endif
                 </div>
                 <form method="POST" action="{{ route('logout') }}">

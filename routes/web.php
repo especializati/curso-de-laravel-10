@@ -16,12 +16,6 @@ use App\Http\Controllers\ListaDeFestasController;
 use App\Http\Controllers\DisponibilidadeController;
 use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\PacoteController;
-use App\Http\Controllers\EntradaController;
-
-Route::get('/entrada_festa', [EntradaController::class, 'entradaFesta'])->name('entrada_festa');
-Route::post('/confirmar-chegada/{id}', [EntradaController::class, 'confirmarChegada'])->name('confirmar_chegada');
-
-
 
 // Rota para exibir a visualização dos pacotes
 Route::get('/visualizar_pacotes', [PacoteController::class, 'visualizarPacotes'])->name('visualizar_pacotes');
@@ -35,7 +29,7 @@ Route::put('/atualizar_pacote/{id}', [PacoteController::class, 'atualizarPacote'
 // Rota para excluir efetivamente o pacote do banco de dados
 Route::delete('/excluir_pacote/{id}', [PacoteController::class, 'excluirPacote'])->name('excluir_pacote');
 
-Route::view('/visualizar_pacote', 'visualizar_pacote')->name('visualizar_pacote');
+Route::resource('pacotes', PacoteController::class);
 Route::resource('disponibilidades', DisponibilidadeController::class);
 
 Route::get('/listadefestas', [ListaDeFestasController::class, 'index']);

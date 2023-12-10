@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Pacote;
 
 class DatabaseSeeder extends Seeder
 {
@@ -39,6 +40,17 @@ class DatabaseSeeder extends Seeder
             'email' => 'comercial@comercial.com',
             'acesso' => 'C',
             'password' => bcrypt('0987654321'),
+        ]);
+
+        Pacote::create([
+            'comidas' => "Jantar Completo, Diversas Sobremesas",
+            'bebidas' => "Cevejas ,  Refrigerantes",
+            'preco_pessoa' => 70.00
+        ]);
+        Pacote::create([
+            'comidas' => "Comida Japonesa",
+            'bebidas' => "Diversos Sucos",
+            'preco_pessoa' => 50.00
         ]);
 
         // Adicione mais comandos de criação de registros, se necessário
