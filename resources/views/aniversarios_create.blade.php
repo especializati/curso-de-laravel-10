@@ -46,17 +46,22 @@
         {!! $pacote->comidas!!}
     </div>
     <div class="form-group">
-        <img src="https://img.freepik.com/fotos-gratis/arranjo-de-comida-deliciosa-de-alto-angulo_23-2149617130.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1699142400&semt=ais" alt="Comidas" style="max-width: 100%;">
+        <img src="https://img.freepik.com/fotos-gratis/arranjo-de-comida-deliciosa-de-alto-angulo_23-2149617130.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1699142400&semt=ais" alt="Comidas" style="max-width: 48%; border-radius: 8px; margin-bottom: 10px; display: flex;
+        justify-content: space-between; margin-bottom: 20px">
+    
     </div>
     <div class="content-pacote">
         {!! $pacote->bebidas!!}
     </div>
 
     <div class="form-group">
-        <img src="https://casaefesta.com/wp-content/uploads/2021/06/bebidas-para-servir-festa-infantil.jpg" alt="Bebidas" style="max-width: 100%;">
+        <img src="https://casaefesta.com/wp-content/uploads/2021/06/bebidas-para-servir-festa-infantil.jpg" alt="Bebidas" style="max-width: 48%; border-radius: 8px; margin-bottom: 10px;display: flex;
+        justify-content: space-between;  margin-bottom: 20px;">
+      
     </div>
         
-    @endforeach
+@endforeach
+
 
 
     <button type="submit" id="submit-btn" class="btn-create-party">Criar festa</button>
