@@ -28,14 +28,16 @@
                     @if(auth()->user()->acesso == 'A' || auth()->user()->acesso == 'C')
                         <a href="{{route('aniversarios.index')}}">Festas</a>
                          <!-- Adicione o botão de Pacotes -->
-                         <a href="{{route('visualizar_pacote')}}">visualizar pacotes</a>
+                         <a href="{{route('visualizar_pacote')}}">Visualizar Pacotes</a>
                     @endif
                     @if(auth()->user()->acesso == 'B')
                         <a href="{{route('convidados.index')}}">Convidados</a>
                         <a href="{{route('aniversarios.create')}}">Fazer Solicitação</a>
                         <!-- Adicione o botão de Lista de Satisfação -->
                         <a href="{{route('satisfacao.lista')}}">Lista de Satisfação</a>
-                    
+                    @endif
+                    @if(auth()->user()->acesso == 'O')
+                        <a href="{{route('entrada_festa')}}">Entrada Festa</a>
                     @endif
                 </div>
                 <form method="POST" action="{{ route('logout') }}">

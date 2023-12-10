@@ -15,9 +15,13 @@ use App\Http\Controllers\OperacionalController;
 use App\Http\Controllers\ListaDeFestasController;
 use App\Http\Controllers\DisponibilidadeController;
 use App\Http\Controllers\ReservaController;
-// web.php
-
 use App\Http\Controllers\PacoteController;
+use App\Http\Controllers\EntradaController;
+
+Route::get('/entrada_festa', [EntradaController::class, 'entradaFesta'])->name('entrada_festa');
+Route::post('/confirmar-chegada/{id}', [EntradaController::class, 'confirmarChegada'])->name('confirmar_chegada');
+
+
 
 // Rota para exibir a visualização dos pacotes
 Route::get('/visualizar_pacotes', [PacoteController::class, 'visualizarPacotes'])->name('visualizar_pacotes');
