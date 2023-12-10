@@ -53,7 +53,7 @@ class AniversarioController extends Controller
             'idade_aniversariante' => $request->input('idade_aniversariante'),
             'nome_aniversariante' => $request->input('nome_aniversariante'),
             'n_convidados' => $request->input('n_convidados'),
-            'pedido' => $request->input('editor'),
+            'pedido' => $request->input('pedido'),
             'id_festa' => $request->input('id_festa'),
             'data' => $request->input('data'),
 
