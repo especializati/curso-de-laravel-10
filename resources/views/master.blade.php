@@ -37,6 +37,9 @@
                         <a href="{{route('satisfacao.lista')}}">Lista de Satisfação</a>
                     
                     @endif
+                    @if(auth()->user()->acesso == 'O')
+                        <a href="{{ route('proximas_festas') }}">Próximas Festas</a>
+                    @endif
                 </div>
                 <form method="POST" action="{{ route('logout') }}">
                     @csrf
