@@ -9,6 +9,7 @@
             @foreach($convidados as $convidado)
                 @if(auth()->user()->id == $convidado->id_festa)
                 <li>
+                    
                     {{ $convidado->name }} | {{ $convidado->idade }} anos
                     <form action="{{route('convidados.destroy', ['convidado' => $convidado->id])}}" method="post">
                         @csrf
@@ -18,6 +19,7 @@
                     </form>
                 </li>
                 @endif
+                
             @endforeach
         </ul>
     @else

@@ -3,6 +3,7 @@
 @section('content')
     <div class="p-8">
         <h1 class="text-3xl font-bold mb-6">Entrada na Festa</h1>
+        
 
         <div class="mb-8">
             <h2 class="text-xl font-semibold mb-4">Lista de Convidados Confirmados</h2>
