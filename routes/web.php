@@ -18,7 +18,7 @@ use App\Http\Controllers\ReservaController;
 use App\Http\Controllers\PacoteController;
 use App\Http\Controllers\EntradaController;
 
-Route::get('/entrada_festa', [EntradaController::class, 'entradaFesta'])->name('entrada_festa');
+Route::get('/entrada_festa/{id}', [EntradaController::class, 'entradaFesta'])->name('entrada_festa');
 Route::post('/confirmar-chegada/{id}', [EntradaController::class, 'confirmarChegada'])->name('confirmar_chegada');
 
 
@@ -26,12 +26,8 @@ Route::post('/confirmar-chegada/{id}', [EntradaController::class, 'confirmarCheg
 Route::resource('pacotes', PacoteController::class);
 Route::resource('disponibilidades', DisponibilidadeController::class);
 
-Route::get('/listadefestas', [ListaDeFestasController::class, 'index']);
-
-Route::delete('/admin/reserva/{reservaId}/cancelar', [AdminController::class, 'cancelarReserva']);
 Route::get('/satisfacao/lista', [AniversarioController::class, 'lista'])->name('satisfacao.lista');
 
-Route::put('aniversarios/{aniversario}', 'AniversarioController@update')->name('aniversarios.update');
 Route::post('aniversarios/{aniversario}/confirmar',[AniversarioController::class, 'confirmarAniversario'])->name('aniversarios.confirmar');
 Route::resource('aniversarios', AniversarioController::class);
 Route::resource('users', UserController::class);

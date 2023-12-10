@@ -25,14 +25,14 @@
             </form>
             @endif
 
+            @if(auth()->user()->acesso == 'O')
+                    <a href="{{route('entrada_festa',['id'=>$aniversario->id_festa])}}">entrada festa</a>
+            @endif
+
             
         </li>
     @endforeach
     @if(auth()->user()->acesso == 'B')
     <a href="{{ route('aniversarios.create') }}">Fazer pedido</a>
     @endif
-@else
-    <p>Você não tem permissão para visualizar esta página.</p>
-@endif
-
 @endsection

@@ -34,7 +34,7 @@
                         <a href="{{route('satisfacao.lista')}}">Lista de Satisfação</a>
                     @endif
                     @if(auth()->user()->acesso == 'O')
-                        <a href="{{route('entrada_festa')}}">Entrada Festa</a>
+                        <a href="{{route('aniversarios.index')}}">Festas</a>
                     @endif
                     
                 </div>

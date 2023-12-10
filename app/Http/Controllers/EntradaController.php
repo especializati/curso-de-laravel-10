@@ -12,7 +12,9 @@ class EntradaController extends Controller
     {
         // Simulando dados - substitua isso pela lógica real de recuperação de dados
         $convidadosConfirmados = Convidado::where('confirmed', true)->get();
+        $convidados = Convidado::all();
         $resumo = [
+            'qtd_convidados'=>$convidados,
             'qtd_chegaram' => $convidadosConfirmados->where('chegada_confirmada', true)->count(),
             'qtd_confirmados' => $convidadosConfirmados->count(),
             'pacote_comida' => 'Pacote Padrão', // Substitua pela lógica real para obter o pacote de comida escolhido

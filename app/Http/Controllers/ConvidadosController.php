@@ -69,7 +69,15 @@ class ConvidadosController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $updated = $this->pacote->where('id',$id)->update($request->except(['_token','_method']));
+
+        if($updated){
+            return redirect()->route('entrada_festa');
+        }
+
+        else{
+            return redirect()->back()->with('msg','Error');
+        }
     }
 
     /**
