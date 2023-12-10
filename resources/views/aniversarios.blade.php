@@ -35,4 +35,5 @@
     @if(auth()->user()->acesso == 'B')
     <a href="{{ route('aniversarios.create') }}">Fazer pedido</a>
     @endif
+@endif
 @endsection

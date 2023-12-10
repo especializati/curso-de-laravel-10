@@ -6,9 +6,6 @@
         {{ session()->get('message') }}
     @endif
 
-    @if (auth()->check())
-        {{ auth()->user()->name }}
-    @endif
 
     <form action="{{ route('convidados.store') }}" method="POST">
         @csrf
@@ -24,7 +21,7 @@
             <label for="cpf">CPF</label>
             <input type="text" name="cpf">
         </li>
-        <input type="hidden" name="id_festa" value="{{ auth()->user()->id }}">
+        <input type="hidden" name="id_festa" value="{{ $id_festa }}">
         <button type="submit">Confirmar Presença</button>
     </form>
 

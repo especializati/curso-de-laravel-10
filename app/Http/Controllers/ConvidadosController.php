@@ -24,9 +24,9 @@ class ConvidadosController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(string $id)
     {
-        return view('convidados_create');
+        return view('convidados_create',['id_festa' => $id]);
     }
 
     /**

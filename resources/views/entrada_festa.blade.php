@@ -8,18 +8,22 @@
         <div class="mb-8">
             <h2 class="text-xl font-semibold mb-4">Lista de Convidados Confirmados</h2>
             <ul class="list-disc pl-6">
-                @forelse($convidadosConfirmados as $convidado)
+                @forelse($convidados as $convidado)
+                @if($convidado->id_festa == $id)
                     <li class="mb-2">
                         <span class="text-gray-800">{{ $convidado->nome }}</span>
-                        @if($convidado->chegada_confirmada)
+                        @if($convidado->presenca == true)
                             <span class="text-green-500 ml-2">(Chegou)</span>
                         @else
-                            <form action="{{ route('confirmar_chegada', ['id' => $convidado->id]) }}" method="post">
+                            <form action="{{ route('convidados.update', ['id' => $convidado->id]) }}" method="post">
                                 @csrf
+                                <input type="hidden" name="_method" value="PUT">
+                                <input type="hidden" name="presenca" value='1'>
                                 <button type="submit" class="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700">Confirmar Chegada</button>
                             </form>
                         @endif
                     </li>
+                @endif
                 @empty
                     <li class="text-gray-600">Nenhum convidado confirmado.</li>
                 @endforelse

@@ -1,8 +1,8 @@
 @extends('master') 
 
 @section('content')
-    <a href="{{route('convidados.create')}}">Formulario Convidados</a>
     @if(auth()->user())
+    <a href="{{route('convidados.createfesta', ['id_festa' => auth()->user()->id])}}">Formulario Convidados</a>
         <h1>Lista de Convidados para a Reserva #{{ auth()->user()->id }}</h1> {{--id do user é o mesmo do id da festa dele--}}
 
         <ul>

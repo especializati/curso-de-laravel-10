@@ -1,34 +1,39 @@
 <?php
 // app/Http/Controllers/OperacionalController.php
 use Illuminate\Support\Facades\DB;
-use App\Models\Reserva;
+use App\Models\Aniversario;
 use App\Models\Convidado;
 
 class OperacionalController extends Controller
 {
-    public function entradaFesta()
+    protected $convidado;
+
+    public function __construct(Convidado $convidado) 
     {
-        $reservaAtual = Reserva::where('data', now()->format('Y-m-d'))->first();
-
-        if (!$reservaAtual) {
-            return redirect()->back()->with('error', 'Nenhuma reserva encontrada para a data atual.');
-        }
-
-        $convidadosConfirmados = $reservaAtual->convidados()->where('chegada_confirmada', true)->get();
-
-        $resumo = [
-            'qtd_chegaram' => $convidadosConfirmados->count(),
-            'qtd_confirmados' => $reservaAtual->convidados()->count(),
-            'pacote_comida' => $reservaAtual->pacote->nome,
-        ];
-
-        return view('operacional.entrada_festa', compact('convidadosConfirmados', 'resumo'));
+        $this->convidado = $convidado;
     }
 
-    // Métodos para confirmar chegada e incluir convidados extras podem ser adicionados aqui
-    ////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////
+
+    public function entradaFesta()
+    {
+        $convidados = $this->convidado->all();
+
+        return view('operacional.entrada_festa', ['convidados' => $convidados]);
+    }
+
+    public function confirmarChegada(Request $request ,string $id){
+        $updated = $this->convidado->where('id',$id)->update($request->except(['_token','_method']));
+
+        if($updated){
+            return redirect()->back();
+        }
+
+        else{
+            return redirect()->back()->with('msg','Error');
+        }
+
+    }
+
 
     public function proximasFestas()
     {

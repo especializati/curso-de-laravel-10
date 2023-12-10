@@ -19,7 +19,7 @@ use App\Http\Controllers\PacoteController;
 use App\Http\Controllers\EntradaController;
 
 Route::get('/entrada_festa/{id}', [EntradaController::class, 'entradaFesta'])->name('entrada_festa');
-Route::post('/confirmar-chegada/{id}', [EntradaController::class, 'confirmarChegada'])->name('confirmar_chegada');
+Route::post('/confirmar-chegada/{id}', [OperacionalController::class, 'confirmarChegada'])->name('confirmar_chegada');
 
 
 
@@ -32,6 +32,7 @@ Route::post('aniversarios/{aniversario}/confirmar',[AniversarioController::class
 Route::resource('aniversarios', AniversarioController::class);
 Route::resource('users', UserController::class);
 Route::resource('convidados', ConvidadosController::class);
+Route::get('convidados/{id_festa}/create', [ConvidadosController::class, 'create'])->name('convidados.createfesta');
 
 Route::get('/', [HomeController::class,'index'])->name('home');
 
