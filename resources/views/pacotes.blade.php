@@ -51,7 +51,10 @@
         margin-bottom: 10px;
     }
 
-    .btn-editar,
+    .btn-editar{
+        display: inline-block;
+        margin-right: 10px;
+    }
     .btn-excluir {
         display: inline-block;
         margin-right: 10px;
@@ -60,23 +63,23 @@
 
 @foreach($pacotes as $pacote)
 <div class="pacote">
-    <h2>Pacote {{$pacote->$id}}</h2>
+    <h2>Pacote {{$pacote->id}}</h2>
     <div class="pacote-details">
         <div class="pacote-info">
             <ul>
                 <li>Bebidas:
                     <ul>
-                        <li>{{$pacote->$bebidas}}</li>
+                        <li>{{$pacote->bebidas}}</li>
                         <!-- Adicione outras bebidas conforme necessário -->
                     </ul>
                 </li>
                 <li>Comidas:
                     <ul>
-                        <li>{{$pacote->$comidas}}</li>
+                        <li>{{$pacote->comidas}}</li>
                         <!-- Adicione outras comidas conforme necessário -->
                     </ul>
                 </li>
-                <li>Preço por pessoa:{{$pacote->$preco_pessoa}}</li>
+                <li>Preço por pessoa:{{$pacote->preco_pessoa}}</li>
             </ul>
         </div>
         <div class="pacote-photos">
@@ -85,8 +88,8 @@
             <img src="{{ asset('https://img.freepik.com/fotos-gratis/arranjo-de-comida-deliciosa-de-alto-angulo_23-2149617130.jpg?size=626&ext=jpg&ga=GA1.1.1880011253.1699142400&semt=ais') }}" alt="Comidas">
         </div>
         <div>
-            <a href="{{ route('pacotes.edit', ['id' => $pacote->id]) }}" class="btn btn-primary btn-editar">Editar</a>
-            <form action="{{ route('excluir_pacote',['id' => 1])}}" method="DELETE" class="deletar" >
+            <a href="{{ route('pacotes.edit', ['pacote' => $pacote->id]) }}" class="btn btn-primary btn-editar">Editar</a>
+            <form action="{{ route('pacotes.destroy',['pacote' => $pacote->id])}}" method="DELETE" class="deletar" >
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-danger btn-excluir">Excluir</button>

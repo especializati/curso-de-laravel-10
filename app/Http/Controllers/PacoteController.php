@@ -1,69 +1,72 @@
 <?php
-// app/Http/Controllers/PacoteController.php
 
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Pacote; // Certifique-se de importar o modelo Pacote ou o modelo que você está utilizando
+use App\Models\Pacote;
 
 class PacoteController extends Controller
 {
-    // Método para exibir a visualização dos pacotes
-    public function visualizarPacotes()
-    {
-        // Recupere todos os pacotes do banco de dados
-        $pacote = Pacote::find($id);
+    protected $pacote;
 
-        // Retorne a view com os pacotes
-        return view('visualizar_pacotes', compact('pacotes'));
+    public function __construct(Pacote $pacote) 
+    {
+        $this->pacote = $pacote;
+    }
+    /**
+     * Display a listing of the resource.
+     */
+    public function index()
+    {
+        $pacotes = $this->pacote->all();
+        return view('pacotes', ['pacotes' => $pacotes]);
     }
 
-    // Método para exibir o formulário de edição de um pacote específico
-    public function editarPacote($id)
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
     {
-        // Recupere o pacote do banco de dados com base no ID
-        $pacote = Pacote::findOrFail($id);
-
-        // Retorne a view com o pacote a ser editado
-        return view('editar_pacote', compact('pacote'));
+        //
     }
 
-    // Método para processar a atualização do pacote no banco de dados
-    public function atualizarPacote(Request $request, $id)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        // Valide os dados do formulário
-        $request->validate([
-            'campo1' => 'required',
-            'campo2' => 'required',
-            // Adicione outras regras de validação conforme necessário
-        ]);
-
-        // Atualize o pacote no banco de dados com base no ID
-        $pacote = Pacote::findOrFail($id);
-        $pacote->campo1 = $request->input('campo1');
-        $pacote->campo2 = $request->input('campo2');
-        // Atualize outros campos conforme necessário
-        $pacote->save();
-
-        // Redirecione de volta à visualização dos pacotes
-        return redirect()->route('visualizar_pacotes')->with('success', 'Pacote atualizado com sucesso!');
+        //
     }
 
-    // Método para excluir efetivamente o pacote do banco de dados
-    public function excluir($id)
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
-        $pacote = Pacote::find($id);
+        //
+    }
 
-        if ($pacote) {
-            $pacote->delete();
-            // Pode adicionar uma mensagem de sucesso se desejar
-        } else {
-            // Pode adicionar uma mensagem de erro se o pacote não for encontrado
-        }
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
 
-        // Redirecionar de volta à página de visualização de pacotes
-        return redirect()->route('visualizar_pacotes');
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
     }
 }
-
-
